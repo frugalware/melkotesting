@@ -1,0 +1,18 @@
+# Compiling Time: 0.37 SBU
+# Maintainer: Melko <melko@frugalware.org>
+
+pkgname=telepathy-kde-accounts-kcm-plugins
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Plugins for protocol-specific UI's in the Telepathy Accounts KCM."
+groups=('kde-extra')
+archs=('i686' 'x86_64')
+_F_cd_path="${pkgname}_${pkgver}"
+Finclude kde
+depends=('telepathy-kde-accounts-kcm')
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
+up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
+source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}_${pkgver}.tar.bz2)
+sha1sums=('340202386d0e0e8e0f18fb3cb856a9055fc200a5')
+
+# optimization OK
