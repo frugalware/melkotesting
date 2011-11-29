@@ -2,17 +2,16 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=telepathy-kde-presence-dataengine
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Plasma dataengine for managing Telepathy account presence."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
-_F_cd_path="${pkgname}_${pkgver}"
 Finclude kde
 depends=('telepathy-qt4' "libplasma>=$_F_kde_ver")
 makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
 up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
-source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}_${pkgver}.tar.bz2)
-sha1sums=('afaf16ce63eef9c9a4cdb06b1e88e62f887094bd')
+source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('87f8c65baf35410e65ca9b7cb016210f2b13f72d')
 
 # optimization OK
