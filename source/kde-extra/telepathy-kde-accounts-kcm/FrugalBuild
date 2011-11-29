@@ -3,7 +3,7 @@
 
 pkgname=telepathy-kde-accounts-kcm
 pkgver=0.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="KCM Module for configuring Telepathy Instant Messaging Accounts."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
@@ -13,5 +13,9 @@ makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
 up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
 source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
 sha1sums=('2ebc4ac117a3e28e2812a2a9c97f7d0ee97dac67')
+
+replaces=('telepathy-kde-accounts-kcm-plugins')
+provides=("${replaces[@]}")
+conflicts=("${replaces[@]}")
 
 # optimization OK
