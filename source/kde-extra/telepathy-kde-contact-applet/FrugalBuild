@@ -1,0 +1,17 @@
+# Compiling Time: 0.37 SBU
+# Maintainer: Melko <melko@frugalware.org>
+
+pkgname=telepathy-kde-contact-applet
+pkgver=0.2.0
+pkgrel=1
+pkgdesc="Plasma applet for displaying contacts."
+groups=('kde-extra')
+archs=('i686' 'x86_64')
+Finclude kde
+depends=('telepathy-qt4' "libplasma>=$_F_kde_ver" "libqtdeclarative>=$_F_kde_qtver")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
+up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
+source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('b1e2ad706deccd6ca4d745828a8b54fd87bc2066')
+
+# optimization OK
