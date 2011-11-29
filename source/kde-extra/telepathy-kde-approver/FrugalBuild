@@ -2,17 +2,16 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=telepathy-kde-approver
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="KDED module that shows a notification when somebody starts a chat with you."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
-_F_cd_path="${pkgname}_${pkgver}"
 Finclude kde
 depends=('telepathy-qt4' "libkutils>=$_F_kde_ver")
 makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
 up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
-source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}_${pkgver}.tar.bz2)
-sha1sums=('ca4bb9d817354e50af18072736843b961a5dc916')
+source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('6488f3119a19c38fc72e0afe3007a49394f36b13')
 
 # optimization OK
