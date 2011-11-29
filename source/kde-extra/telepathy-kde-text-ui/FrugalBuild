@@ -2,17 +2,16 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=telepathy-kde-text-ui
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Telepathy text chat handler."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
-_F_cd_path="${pkgname}_${pkgver}"
 Finclude kde
 depends=('telepathy-qt4' "libqtwebkit>=$_F_kde_qtver" "libkutils>=$_F_kde_ver" "libknotify>=$_F_kde_ver")
 makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
 up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
-source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}_${pkgver}.tar.bz2)
-sha1sums=('3a9a174acd5b955618a74761a380e951c6dce48a')
+source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('fb7c5dc02bb9d150d0e372c3584f50670d620f4a')
 
 # optimization OK
