@@ -2,17 +2,16 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=telepathy-kde-filetransfer-handler
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Telepathy background application for handling file tranfers."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
-_F_cd_path="${pkgname}_${pkgver}"
 Finclude kde
 depends=('telepathy-qt4' "libkutils>=$_F_kde_ver")
 makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
 up2date="Flastverdir $_F_kde_mirror/unstable/telepathy-kde/"
-source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}_${pkgver}.tar.bz2)
-sha1sums=('050eb79ee5a24a102512cf4dbef18b4bf8eb5b50')
+source=($_F_kde_mirror/unstable/telepathy-kde/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('25c52485cb5653fa79d0eb9724b494803a8f0ad9')
 
 # optimization OK
