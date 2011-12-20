@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=qwt
-pkgver=5.2.2
+pkgver=6.0.1
 pkgrel=1
 pkgdesc="2D plotting library (Qt4)"
 depends=('libqtsvg')
@@ -12,8 +12,8 @@ archs=('i686' 'x86_64')
 _F_sourceforge_ext=".tar.bz2"
 Finclude sourceforge
 source=($source config.pri.patch)
-sha1sums=('77de405c5f9867a001f0e0a668154023faccb0a0' \
-          'ab9bc30864e1fa710a2a9e7e2bcae7e412ed21c7')
+sha1sums=('301cca0c49c7efc14363b42e082b09056178973e' \
+          '57dc58a31a0087293666ef6c5b47cf150a265d06')
 
 subpkgs=("$pkgname-docs" "$pkgname-designer-plugin")
 subdescs=('Documentation for Qwt' 'Qwt Qt4 Designer Plugin.')
