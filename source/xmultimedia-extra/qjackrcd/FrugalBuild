@@ -1,0 +1,24 @@
+# Compiling Time: 0.01 SBU
+# Maintainer: Slown <slown@frugalware.org>
+
+pkgname=qjackrcd
+pkgver=1.0.4
+pkgrel=2
+pkgdesc="A simple QT/Jack recorder"
+depends=('libqtgui' 'libsndfile' 'jack' 'libuuid')
+makedepends=('qt4-linguist' 'libqtdesigner')
+groups=('xmultimedia-extra')
+archs=('i686')
+Finclude sourceforge
+sha1sums=('299f0f37a796405d2de787fa3c8bb847519840d9')
+
+_F_desktop_name="QJackRcd"
+_F_desktop_icon="/usr/share/pixmaps/qjackrcd.png"
+_F_desktop_categories="AudioVideo"
+
+build() {
+	Fcd
+	qmake PREFIX=/usr || Fdie
+ 	make INSTALL_ROOT=$Fdestdir install || Fdie
+	Fdesktop2
+}
