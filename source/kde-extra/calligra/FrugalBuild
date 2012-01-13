@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=calligra
-pkgver=2.3.84
+pkgver=2.3.86
 pkgrel=1
 pkgdesc="An integrated Office suite for KDE"
 url="http://www.calligra-suite.org"
@@ -18,7 +18,7 @@ provides=("${replaces[@]}")
 conflicts=("${replaces[@]}")
 archs=('i686' 'x86_64')
 up2date="Flasttar $_F_kde_mirror/$_F_kde_dirname"
-sha1sums=('0af76057c1eca55fff2541be3d0c47b911a1063f')
+sha1sums=('719c7ed8293d27576ef178af621af89cddc5fab5')
 
 
 subpkgs=("${subpkgs[@]}" "braindump")
@@ -56,7 +56,7 @@ subreplaces=("${subreplaces[@]}" '')
 subpkgs=("${subpkgs[@]}" "kexi")
 subdescs=("${subdescs[@]}" "Calligra integrated data management.")
 subdepends=("${subdepends[@]}" "libkde3support>=$_F_kde_ver kdelibs-interfaces>=$_F_kde_ver \
-	libqtwebkit>=$_F_kde_qtver libkross>=$_F_kde_ver libmysqlclient")
+	libqtwebkit>=$_F_kde_qtver libkross>=$_F_kde_ver libmysqlclient sqlite3>=3.7.9-3")
 subrodepends=("${subrodepends[@]}" "$pkgname-libs=$pkgver")
 subgroups=("${subgroups[@]}" 'kde-extra')
 subarchs=("${subarchs[@]}" 'i686 x86_64')
@@ -65,7 +65,7 @@ subreplaces=("${subreplaces[@]}" '')
 subpkgs=("${subpkgs[@]}" "krita")
 subdescs=("${subdescs[@]}" "Calligra image manipulation application.")
 subdepends=("${subdepends[@]}" "libthreadweaver>=$_F_kde_ver libknewstuff>=$_F_kde_ver libqtopengl>=$_F_kde_qtver \
-	glew libkdcraw>=$_F_kde_ver poppler-qt4 libqtuitools>=$_F_kde_qtver openexr libqtgtl")
+	glew libkdcraw>=$_F_kde_ver poppler-qt4 libqtuitools>=$_F_kde_qtver openexr libqtgtl lcms2")
 subrodepends=("${subrodepends[@]}" "$pkgname-libs=$pkgver $pkgname-data=$pkgver")
 subgroups=("${subgroups[@]}" 'kde-extra')
 subarchs=("${subarchs[@]}" 'i686 x86_64')
