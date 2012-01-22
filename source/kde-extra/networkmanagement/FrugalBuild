@@ -2,9 +2,10 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=networkmanagement
-pkgver=0.8.98
+pkgver=0.8.99
 pkgrel=1
 pkgdesc="KDE networkmanager and applet."
+#_F_cmake_type="Debug"
 Finclude kde
 depends=('networkmanager>=0.9.1.90' 'libkdesolid>=$_F_kde_ver' 'libplasma>=$_F_kde_ver' \
          'libqtsql>=$_F_kde_qtver' 'libqtdeclarative>=$_F_kde_qtver' 'libknotify>=$_F_kde_ver' 'libkutils>=$_F_kde_ver')
@@ -13,7 +14,7 @@ groups=('kde-extra')
 archs=('i686' 'x86_64')
 up2date="Flastverdir $_F_kde_mirror/unstable/$pkgname/"
 source=($_F_kde_mirror/unstable/$pkgname/$pkgver/src/$pkgname-$pkgver.tar.bz2)
-sha1sums=('f46274c4cca722f37eef7418144c0c04bfe21e24')
+sha1sums=('18d625a25b90f9591a5cfdabcf77269eb3ba33e0')
 
 replaces=('knetworkmanager' 'plasma-applet-networkmanager')
 conflicts=("${replaces[@]}")
