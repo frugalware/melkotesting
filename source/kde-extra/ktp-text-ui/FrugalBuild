@@ -1,0 +1,21 @@
+# Compiling Time: 0.37 SBU
+# Maintainer: Melko <melko@frugalware.org>
+
+pkgname=ktp-text-ui
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="Telepathy text chat handler."
+groups=('kde-extra')
+archs=('i686' 'x86_64')
+Finclude kde
+depends=('ktp-common-internals>=0.3.0' "libqtwebkit>=$_F_kde_qtver" "libknotify>=$_F_kde_ver")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
+up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
+source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('b9ba195904d470835e404f37073ed36fc510c791')
+
+replaces=('telepathy-kde-text-ui')
+provides=("${replaces[@]}")
+conflicts=("${replaces[@]}")
+
+# optimization OK
