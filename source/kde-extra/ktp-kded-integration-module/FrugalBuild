@@ -1,0 +1,21 @@
+# Compiling Time: 0.19 SBU
+# Maintainer: Melko <melko@frugalware.org>
+
+pkgname=ktp-kded-integration-module
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="Provide several plugins for the Telepathy KDE suite."
+groups=('kde-extra')
+archs=('i686' 'x86_64')
+Finclude kde
+depends=("ktp-common-internals>=0.3.0")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
+up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
+source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('df916620c12dba8041669f36ca06c5b97781b4a7')
+
+replaces=('telepathy-kde-integration-module')
+provides=("${replaces[@]}")
+conflicts=("${replaces[@]}")
+
+# optimization OK
