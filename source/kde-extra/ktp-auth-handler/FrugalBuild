@@ -1,0 +1,21 @@
+# Compiling Time: 0.25 SBU
+# Maintainer: Melko <melko@frugalware.org>
+
+pkgname=ktp-auth-handler
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="Background application for handling passwords and ssl certificates."
+groups=('kde-extra')
+archs=('i686' 'x86_64')
+Finclude kde
+depends=('ktp-common-internals>=0.3.0' "libkdewebkit>=$_F_kde_ver")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
+up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
+source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('fcb94f44e40ecdc7d4fbe591941a4525f51f2760')
+
+replaces=('telepathy-kde-auth-handler')
+provides=("${replaces[@]}")
+conflicts=("${replaces[@]}")
+
+# optimization OK
