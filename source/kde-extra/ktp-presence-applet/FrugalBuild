@@ -1,0 +1,23 @@
+# Compiling Time: 0.37 SBU
+# Maintainer: Melko <melko@frugalware.org>
+
+pkgname=ktp-presence-applet
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="Plasma applet for managing your Telepathy account presence."
+groups=('kde-extra')
+archs=('i686' 'x86_64')
+Finclude kde
+depends=('libplasma' 'libqtsql' 'libqtdeclarative' 'libkdewebkit'  "ktp-common-internals>=0.3.0")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
+up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
+source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2 \
+	fix-multi-linguas.patch)
+sha1sums=('ab2a78b4810cc0c21aa649e8371e52188a13a1b1' \
+          'bae0a0e81c306a131d35be825848b2badb83c6e4')
+
+replaces=('telepathy-kde-presence-applet')
+provides=("${replaces[@]}")
+conflicts=("${replaces[@]}")
+
+# optimization OK
