@@ -3,7 +3,7 @@
 
 pkgname=ktp-common-internals
 pkgver=0.3.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Common libraries for telepathy-kde."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
@@ -13,5 +13,6 @@ makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" 'phonon')
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
 sha1sums=('cee1d7a6b8e72cfdef95fc675405bfe979cd50e2')
+replaces=('telepathy-kde-presence-dataengine')
 
 # optimization OK
