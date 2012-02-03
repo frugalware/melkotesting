@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=calligra
-pkgver=2.3.86
+pkgver=2.3.87
 pkgrel=1
 pkgdesc="An integrated Office suite for KDE"
 url="http://www.calligra-suite.org"
@@ -18,7 +18,7 @@ provides=("${replaces[@]}")
 conflicts=("${replaces[@]}")
 archs=('i686' 'x86_64')
 up2date="Flasttar $_F_kde_mirror/$_F_kde_dirname"
-sha1sums=('719c7ed8293d27576ef178af621af89cddc5fab5')
+sha1sums=('d398e78c553c4d512c57236a92732765aa82abc5')
 
 
 subpkgs=("${subpkgs[@]}" "braindump")
