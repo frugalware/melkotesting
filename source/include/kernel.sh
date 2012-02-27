@@ -136,7 +136,7 @@ fi
 _kernel_up2date()
 {
 	local _ver
-	_ver=$(curl -s 'http://www.kernel.org/pub/linux/kernel/v3.0/' | sed -n "s|.*linux-\($_F_kernelver_ver\(.[0-9]\+\)\?\).tar.xz.*|\1|p" | tail -n 1)
+	_ver=$(Fwcat 'http://www.kernel.org/pub/linux/kernel/v3.0/' | sed -n "s|.*linux-\($_F_kernelver_ver\(.[0-9]\+\)\?\).tar.xz.*|\1|p" | Fsort | tail -n 1)
 	if [ "$_ver" == "$_F_kernelver_ver.$_F_kernelver_stable" ]; then
 		echo $pkgver
 	else
@@ -182,7 +182,6 @@ source=("${source[@]}" 'config.i686' 'config.x86_64' 'config.ppc' 'config.arm')
 
 ###
 # * subpkg()
-# * subdepends()
 # * subarchs()
 # * subinstall()
 # * suboptions()
@@ -190,14 +189,12 @@ source=("${source[@]}" 'config.i686' 'config.x86_64' 'config.ppc' 'config.arm')
 # * subdescs()
 ###
 subpkgs=("kernel$_F_kernel_name-source" "kernel$_F_kernel_name-docs")
-subdepends=("make gcc kernel-headers" "")
-subrodepends=("kernel$_F_kernel_name-docs" "kernel$_F_kernel_name")
+subrodepends=("kernel$_F_kernel_name-docs make gcc kernel-headers" "kernel$_F_kernel_name")
 subarchs=('i686 x86_64 ppc arm' 'i686 x86_64 ppc arm')
 subinstall=('src/kernel-source.install' '')
 suboptions=('nodocs' '')
 if [ -z "$_F_kernel_name" ]; then
 	subpkgs=("${subpkgs[@]}" 'kernel-headers')
-	subdepends=("${subdepends[@]}" '')
 	subrodepends=("${subrodepends[@]}" '')
 	subgroups=('devel' 'apps' 'devel devel-core')
 	subdescs=('Linux kernel source' 'Linux kernel documentation' 'Linux kernel include files')
@@ -312,7 +309,7 @@ Fbuildkernel()
 			Ffilerel arch/x86/boot/bzImage /boot/$_F_kernel_path-$_F_kernel_ver$_F_kernel_uname
 		fi
 	fi
-	Fmkdir /lib/modules
+	Fmkdir /lib/{modules,firmware}
 	#unset MAKEFLAGS
 	make INSTALL_MOD_PATH=$Fdestdir $MAKEFLAGS modules_install || Fdie
 	# dump symol versions so that later builds will have dependencies and
@@ -326,6 +323,8 @@ Fbuildkernel()
 		/lib/modules/$_F_kernel_ver$_F_kernel_uname/build
 	Fln /usr/src/linux-$_F_kernel_ver$_F_kernel_uname \
 		/lib/modules/$_F_kernel_ver$_F_kernel_uname/source
+
+	Fkernelver_compress_modules
 
 	# scriptlets
 	cp $Fincdir/kernel.install $Fsrcdir || Fdie

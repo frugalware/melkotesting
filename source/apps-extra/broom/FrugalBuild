@@ -1,0 +1,13 @@
+# Compiling Time: 0 SBU
+# Maintainer: Slown <slown@frugalware.org>
+
+pkgname=broom
+pkgver=1.4.0
+pkgrel=1
+pkgdesc="A disk cleaning utility for developers"
+depends=()
+groups=('apps-extra')
+archs=('i686' 'x86_64')
+_F_github_author="nicoulaj"
+Finclude github
+sha1sums=('14ef94e44e7bb9a94d7a807531a58ca46d2ba93c')

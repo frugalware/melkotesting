@@ -18,11 +18,11 @@ fi
 Finclude kernel
 
 if ! Fuse $USE_DEVEL; then
-sha1sums=('d6aedad90c386600076b3fd976d9c66be57c136f' \
-          'b04966c5a593e2d0de7ebc84ec948a600fe8e7e2' \
+sha1sums=('0d6ae32001e3c2ecd996675c4262a9ae977733c5' \
+          'e6863b3b74ed83bc2ac2e5057bea8b8569535741' \
           '7a2d9a8cbc71df32d2c382af485684bca0caa28d' \
-          '92da20a2205452717a2bf6927a74b6b89ee03762' \
-          'bd91bc9fdc3ede007fd7a0eabeabc844faeed7ed' \
+          '77a6089de108b68f8b60ec05160b4453b7671133' \
+          '9e09ce09ac9a862b44d244d52b0edfbfdf6ff887' \
           '754e42240154842808a47115e692620903816471' \
           '384290a11db317e0d9dc8b4fdf0d29f8027e808c')
 fi

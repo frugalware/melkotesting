@@ -1,9 +1,9 @@
-# Compiling Time: 0.02 SBU
+# Compiling Time: 0.03 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=rho
-pkgver=1.1.12
-pkgrel=2
+pkgver=1.1.14
+pkgrel=1
 pkgdesc="A small, very configurable console-based text editor."
 url="http://rho.tuxfamily.org"
 depends=('ncurses')
@@ -11,7 +11,7 @@ groups=('apps-extra')
 archs=('i686' 'x86_64')
 up2date="Flasttar $url"
 source=($url/$pkgname-$pkgver.tar.bz2)
-sha1sums=('19e6dbda934f116fe41a17cbfd063faa3f12b7b9')
+sha1sums=('1bd66bd2cfa70b9d48372a1ceb86287ecf2e41f0')
 
 build() {
 	Fcd
