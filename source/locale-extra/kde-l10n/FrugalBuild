@@ -2,13 +2,13 @@
 # Maintainer: centuri0 <achevaux at gmail dot com>
 
 pkgname=kde-l10n
-pkgver=4.8.0
-pkgrel=2
+pkgver=4.8.2
+pkgrel=1
 pkgdesc="Dummy package."
 url="http://www.kde.org"
 pkgurl="ftp://ftp.kde.org/pub/kde/stable/$pkgver/src/$pkgname"
 depends=()
-makedepends=("kdelibs>=${_F_kde_ver}" "kdelibs-compiletime>=${_F_kde_ver}" "automoc4" "docbook-xsl" "ksgmltools2")
+makedepends=("kdelibs" "automoc4" "docbook-xsl")
 groups=('locale-extra')
 archs=('i686' 'x86_64')
 options=('nodocs' 'scriptlet')
@@ -17,24 +17,24 @@ groups=('locale-extra')
 up2date=$pkgver
 ## This parts are most from the OOo build. *me gives janny and vmiklos some power cookies* :)
 klangs=( 'ar' 'bg' 'bs' 'ca' 'ca@valencia' 'cs' 'da' 'de' 'el'
-'en_GB' 'es' 'et' 'eu' 'fa' 'fi' 'fr' 'ga' 'gl' 'hr' 'hu'
-'ia' 'is' 'it' 'ja' 'kk' 'km' 'ko' 'lt' 'lv' 'nb' 'nds' 'nl' 'nn' 'pa'
+'en_GB' 'es' 'et' 'eu' 'fa' 'fi' 'fr' 'ga' 'gl' 'he' 'hr' 'hu'
+'ia' 'id' 'is' 'it' 'ja' 'kk' 'km' 'ko' 'lt' 'lv' 'nb' 'nds' 'nl' 'nn' 'pa'
 'pl' 'pt' 'pt_BR' 'ro' 'ru' 'si' 'sk' 'sl' 'sr' 'sv' 'tg' 'th'
-'tr' 'uk' 'vi' 'wa' 'zh_CN' 'zh_TW')
+'tr' 'ug' 'uk' 'vi' 'wa' 'zh_CN' 'zh_TW')
 kdescs=('Arabic' 'Bulgarian' 'Bosnian'
 'Catalan' 'Catalan (Valencian)' 'Czech' 'Danish' 'German' 'EL' 'British'
 'Spanish' 'Estonian' 'Basque' 'Farsi' 'Finnish' 'French'
-'Irish' 'Galician' 'Croatian' 'Hungarian' 'Interlingua' 'Icelandic'
+'Irish' 'Galician' 'Hebrew' 'Croatian' 'Hungarian' 'Interlingua' 'Indonesian' 'Icelandic'
 'Italian' 'Japanese' 'Kazakh' 'Korean' 'Lithuanian' 'Latvian'
 'Norwegian' 'Low Saxon' 'Dutch' 'Norwegian' 'Punjabi'
 'Polish' 'Portuguese' 'Brazilian' 'Romanian' 'Russian' 'Sinhala'
 'Slovak' 'Slovenian' 'Serbian' 'Swedish' 'Tajik' 'Thai'
-'Turkish' 'Ukrainian' 'Vietnamese' 'Walloon' 'Chinese Simplified' 'Chinese Traditional')
+'Turkish' 'Uyghur' 'Ukrainian' 'Vietnamese' 'Walloon' 'Chinese Simplified' 'Chinese Traditional')
 ## source()
 i=0
 while [ $i -lt ${#klangs[@]} ]
 do
-        source=("${source[@]}" "$pkgurl/$pkgname-${klangs[$i]}-$pkgver.tar.bz2")
+        source=("${source[@]}" "$pkgurl/$pkgname-${klangs[$i]}-$pkgver.tar.xz")
         i=$(($i+1))
 done
 
@@ -49,18 +49,13 @@ do
 	subreplaces=("${subreplaces[@]}" "kde-i18n-`echo ${klangs[$i]}|tr [A-Z] [a-z]`")
 	subprovides=("${subprovides[@]}" "kde-i18n-`echo ${klangs[$i]}|tr [A-Z] [a-z]`")
         subgroups=("${subgroups[@]}" "locale-extra")
-        subarchs=("${subarchs[@]}" "i686 x86_64 ppc")
+        subarchs=("${subarchs[@]}" "i686 x86_64")
         i=$(($i+1))
 done
 
 Finclude kde
 build()
 {
-        ## remove this after kde-4.8.1
-        for duplicate in nepomukbackup nepomukfileindexer nepomukqueryservice nepomukserver nepomukservicestub nepomukstorage; do
-                find */messages/kdelibs -name ${duplicate}.po -exec rm {} \; || Fdie
-        done
-
         for ksub in "${klangs[@]}"
         do
                 cd "$Fsrcdir/$pkgname-$ksub-$pkgver"
@@ -72,55 +67,58 @@ build()
 
 
 
-sha1sums=('25574046ef60ca18cb41e3e4ef5bb576eaee8a6c' \
-          '1439bc5ccf4bac0e7206c1cf53942d6470b1bb8a' \
-          '3067cdd5479a7ac47773f5bfd3550ccd0d497b3f' \
-          'f028a36a33456bad83a61d931c6d7bed9fb0ddb7' \
-          '8621bcf74c9171fc868d90337d48471b945fc574' \
-          '6da725ba9868df157aa3348a66cb803b0d089df9' \
-          'ec8896cf98b9da963f411d96d8fce713b7b068f1' \
-          'cc8e85d42d4f11ea89f33b14676967a682447462' \
-          '5850616e0755be1d7c832af1bef6d679649667a7' \
-          '7664caee4afcb30aa6b5f9a96b887da9ef0a03b8' \
-          '3e602904ab5839c1189f04bf126c25318cf93de9' \
-          'efed217510ccbe0cac9e5c0ba0599e0fc07cb267' \
-          'd847853fae666e6b868821616347e3ab16eb6f65' \
-          'a4fd7612ebaed5ce0621ac272b076bc1e573f106' \
-          '14d60d14813a189402e4bfde36afc1371138899a' \
-          '847b55853bc6e047cb74cae2fec8ba926ee14130' \
-          '2b2e01c5c83d8a9d64f88aad5b01de0a705a0fa7' \
-          '3e4d16cfb32f5483bd7df57b394f5f3ed9e9ef29' \
-          'e254b68049324b0622dd1028c6d18ab759dd14e3' \
-          '672564d12c3373c9fed89a2bc12d77cc5b3940f6' \
-          '222d883a287a007e17b71b24346327f4b817a1c6' \
-          'e73b58f2510241ae14f76cedf22bef0ab090d4c0' \
-          '654fabd8ce371a333d4fdf7506649e3c3cbeb56e' \
-          '40b55a2c2095bbad698c009d1f84f3c9cf832468' \
-          'cb4dc257c861ed5bf0e04f6b2a726ffc712ad1c3' \
-          '3a95682f80a3330468d56e2d1d59a5c0eee60381' \
-          '3a63a949901a28c7ef2260c9a645b3b2ff3e5303' \
-          'ab71eb0b4ec8776c1f7fc36168278a554c5f4439' \
-          'c28213932369da62dda42a900be8c5981e4afe9d' \
-          '4a59ae8cdbece8e06630a71cd26d6ef781cf2b31' \
-          '5f30fb7a641023086a3492da21c1d7853fb20855' \
-          'e5e354f2ce9f5b97e1024db11f97db4f442036e6' \
-          '417d7889034a65b66cdb39ab7a11f2363aa7ca30' \
-          '69b74fdd34cf66cebe62428f2cf246f19d617610' \
-          'f05b170db034d463c85a0e93e76092cf1ace8e0d' \
-          '359c926d1cd8d309765860f9a3b56dfc7ad00c20' \
-          'c464e798b33ac3b8c9b2d86a8c4267243a47d107' \
-          '58620fc94a47871dbc31eb0f0db8f5608d9a3250' \
-          '218865dde8a2abe82ba2a5d4cb266f9725079d91' \
-          '2a4d6c174684d83bfaac564d70a120f916e5e1dc' \
-          'a172b10788de47fc08fdd5598052fed4dfc88650' \
-          '21e9e1dacc204a5449b0793aac0be71370513f14' \
-          '7cdab8ffa41866e9d387de9a67fa3869d09afe28' \
-          '7c44aeeba5546a13de893d6f03ecbf7ebb1439e7' \
-          'cfd255645a6609b1feff82b05c03070859f15cff' \
-          '5a4534942da968e67fb7e97042f8e8b597bf66da' \
-          '8b1210d44b28cee81f4b495c3fc8bdceca3151bb' \
-          'e0f7be649ccceb962bc310adcc73c1785d2267ed' \
-          'd49a3546e317b0307d5d11d2775ad7e878f74a39' \
-          '993456f089af180b79c4d1eb09b6a67ff5a45627' \
-          '97e8df85eee13f074d37ebe271fb1be370b949c1' \
-          '8c65ed9425bef3f2a064c1df68ea60b3505ba387')
+sha1sums=('788c0c025bf1ce8534477809094d03f2f23b8e5c' \
+          '350260da142ef0f089b6ee016536b258791380fe' \
+          'd17c6c6db248ab1846bd24414d9269755979eae2' \
+          'c279fff28b8bccd199b822436bcd3c709d9113db' \
+          'efb413513f865f42fb3d8da25c297ba03b68c5aa' \
+          '1f35e68927a662933091afb8686fca750c60db76' \
+          '9c3a8cdc6e02a2d0690d5d0bb34941d86ba174e9' \
+          '8878e7331033e513cc5038f2b007cb4a0bab9c8b' \
+          '3459e757cf2a8f5beefb38c4308bd1d30d831d10' \
+          '22784b4eac2b9f535fbefc246a36d077e206ec74' \
+          'a9c310eaf7c1acdd52e072a52755d0734086740b' \
+          'c333715f6194c4b565203e08a68aae275768276f' \
+          'e499647dbf5fa4bb96c73bd7a5266428bebd3356' \
+          '240e051b6a88e35c56c02db6f51df19c4e9a7c6e' \
+          'd3ec0717112d3a4a9b6c860a9a65e6f493a18a25' \
+          '0a1d0b00625e740a20f2da5554e7c6f2d793048c' \
+          'b9ec8d0bf9ae2c8c95347f1a1b8ca0000b6cacef' \
+          'd17ed3da1c8e1b0274870f25ee9f01403d4f22e9' \
+          'e3667ab85fd1bed46c97ec2f1d6235ee75464243' \
+          'b495f95aa81219b413231137ea5a4f7e2b2827ae' \
+          '5f4a923394fdfbe5e80dacc67eea57d791813d88' \
+          '2e777fa87d9dddc2212288dbb372624c0b3e3435' \
+          'cd68eb47f63adc6ed2c42dcade6baab20dcf295f' \
+          'fdeac21828ae9ff7dd313519a09b58d6dcdffbe5' \
+          '948f7cc7de29bad329a8a5f36a8655002173ace4' \
+          '5cee5f94fcd4c495eaf3a8be32dbea6ae0b55806' \
+          'f7e567d3fd97b983962c734b15eb910939e4f8b2' \
+          '7b4e4b13f419a554241ba49643d32c7c687f463c' \
+          '4e0051ac0dc5f5165fedabbda88609fa4707f8ce' \
+          '1dda78f430d8e2cbb6291e0a26cdfabed38703a6' \
+          '03fff2f26f597375e5d264a51b85548ab73ba9a9' \
+          '7f3689f716208835aa5efdf6eeffeaf402ccb31a' \
+          '50a10bffe55a5b875c398115fabcc33f5fbd7541' \
+          'd6f5682a8f091338a1fb66784309b8c9c67fa795' \
+          'c74fdab15b121df220a7a675794d94480f3f8377' \
+          'fef80e5c9bff1bf8be4c371a483f3f9f14b558ca' \
+          'ec34f8d3e19db184df3c3e24b641138366dcc447' \
+          'bb3ec80b9d130c5b85a764a573e523f2e1e38aa8' \
+          'e955964db78a7a7da009adeddfb04affbad5cac4' \
+          '23461b40c72689ebb9056ec6c43d4ad860e40e7d' \
+          '79b2cdd138f90b6299c68b855534a405f8c224b4' \
+          'ac15cc48c35045e9756dabf33c35dff156eb388f' \
+          '4ce44bda84e5237d7d6ca06ad4c736970eda7024' \
+          '08c3b7f8a220e9eef30727201c72ae2ac09d77d5' \
+          'ab29e6f9e45df47518cc4f49c9390a1fb2c49537' \
+          '2fbd34ae9a50dbd4a86140c98ba205bb84aad2a7' \
+          '946122cd702457f7536f91d12e631fffd0f2e0d2' \
+          'de0cf99710004e8fe18f85b79b5ead645432645e' \
+          'a6d89dcda6296efeb2963e8206a6124f1b487c24' \
+          '3b60aa19cdc371d71dcf391c1b78ede7670e4863' \
+          '768442cd7de011cef542e67f81c8f42b8b204805' \
+          'a0ad1f1426508052395119ab1ea8bf7a39e234a8' \
+          '607a192fec7d2977061726a437873f644718b20e' \
+          '58d06ffd89215cf8d695fb61011d9c551a88b424' \
+          '125cb7508234d41fb8e4c233d9b8123e1ae456ce')

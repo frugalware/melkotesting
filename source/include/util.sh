@@ -95,7 +95,7 @@ Flocalstatedir="/var"
 Finfodir="/usr/share/info"
 Fmandir="/usr/share/man"
 Fmenudir="/usr/share/applications"
-Farchs=('i686' 'x86_64' 'ppc' 'arm')
+Farchs=('i686' 'x86_64' 'arm')
 if [[ "`arch`" == arm* ]]; then
 	Fbuildchost="arm-frugalware-linux-gnueabi"
 else
@@ -807,7 +807,11 @@ Fconf() {
 		fi
 	fi
 
-	if [ -x $_F_conf_configure ]; then
+	if [ ! -e "$_F_conf_configure" ]; then
+		Fautogen
+	fi
+
+	if [ -x "$_F_conf_configure" ]; then
 		Fconfoptstryset "prefix" "$Fprefix"
 		Fconfoptstryset "sysconfdir" "$Fsysconfdir"
 		Fconfoptstryset "localstatedir" "$Flocalstatedir"
@@ -886,8 +890,8 @@ Fnant() {
 Fmakeinstall() {
 	Fmessage "Installing to the package directory..."
 	if [ -f GNUmakefile -o -f makefile -o -f Makefile ]; then
-		if make -p -q DESTDIR="$Fdestdir" "$@" install 2>/dev/null | grep -v 'DESTDIR\s*=' | \
-			grep -q "$Fdestdir\\|\$DESTDIR\\|\$(DESTDIR)\\|\${DESTDIR}" 2>/dev/null; then
+		if make -p -q DESTDIR="@FDESTDIR@" "$@" install 2>/dev/null | grep -v 'DESTDIR\s*=' | \
+			grep -q "@FDESTDIR@\\|\$DESTDIR\\|\$(DESTDIR)\\|\${DESTDIR}" 2>/dev/null; then
 			_F_make_opts="$_F_make_opts DESTDIR=$Fdestdir"
 		else
 			_F_make_opts="$_F_make_opts prefix=$Fdestdir/$Fprefix"
@@ -1151,9 +1155,42 @@ Fautoreconf() {
 }
 
 ###
+# * Fautogen(): Try to run autogen scripts else run Fautoconfize if not found.
+###
+Fautogen() {
+	local autogen old_pwd="$(pwd)"
+
+	cd "$(dirname "$_F_conf_configure")" || return
+	if [ -f "./configure.ac" -o -f "./configure.in" ]; then
+		for autogen in './autogen.sh'; do
+			if [ -f "$autogen" ]; then
+				Fexec "$autogen"
+				cd "$old_pwd"
+				return
+			fi
+		done
+		Fautoconfize
+	fi
+	cd "$old_pwd"
+}
+
+###
+# * Fsanitizename: Clear/fix some common package name string common problems on
+# an automated package name retrival/usage (remove duplicate name assignation in
+# scripts). Parameters: 1) name (optional) to clean, else stdin if not present.
+###
+Fsanitizename() {
+	if [ $# -gt 0 ]; then
+		echo "$1" | Fsanitizename
+	else
+		sed "s/\(.*\)/\L\1/g;s/ /_/g"
+	fi
+}
+
+###
 # * Fsanitizeversion: Clear/fix some common version string common problems on
-# an automatized version output (also remove pkgextraver ending). Parameters:
-# 1) version (optional) to clean, else stdin if not present
+# an automated version output (also remove pkgextraver ending). Parameters:
+# 1) version (optional) to clean, else stdin if not present.
 ###
 Fsanitizeversion() {
 	if [ $# -gt 0 ]; then
@@ -1176,6 +1213,9 @@ Fwcat() {
 	# eg. when http://foo.com/bar instead of http://foo.com/bar/
 	lynx -source "$1" 2>/dev/null && return
 }
+
+Flasttar_filter='\.tar\(\.gz\|\.bz2\)\?\|\.tgz'
+Flastzip_filter='\.zip'
 
 ###
 # * Flastarchive: Extracts last archive version from a page. Parameters: 1)
@@ -1246,7 +1286,7 @@ Flastverdir() {
 # ball extension. Parameters: 1) url (optional) see Flastarchive
 ###
 Flasttar() {
-	Flastarchive "$1" '\.tar\(\.gz\|\.bz2\)\?\|\.tgz'
+	Flastarchive "$1" "$Flasttar_filter"
 }
 
 ###

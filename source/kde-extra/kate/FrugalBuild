@@ -7,10 +7,9 @@ pkgdesc="Advanced Text Editor."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
-depends=("libkde3support>=$_F_kde_ver libqtdeclarative>=$_F_kde_qtver")
-rodepends=("kdelibs-core>=$_F_kde_ver libkdekate>=$_F_kde_ver")
-makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" \
-	"ksgmltools2>=$_F_kde_ver" "libqttest>=$_F_kde_qtver")
+depends=("libkde3support>=$_F_kde_ver" "libqtdeclarative>=$_F_kde_qtver")
+rodepends=("kdelibs-core>=$_F_kde_ver" "libkdekate>=$_F_kde_ver")
+makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "libqttest>=$_F_kde_qtver")
 
 subpkgs=("${subpkgs[@]}" "kate-plasma")
 subdescs=("${subdescs[@]}" "Kate plasmoid.")

@@ -2,7 +2,7 @@
 # Maintainer: Michel Hermier <hermier@frugalware.org>
 
 pkgname=krb5
-pkgver=1.9.2
+pkgver=1.10.1
 pkgrel=1
 pkgdesc="Kerberos: The Network Authentication Protocol"
 url="http://web.mit.edu/kerberos/"
@@ -10,11 +10,11 @@ license="MIT licence"
 depends=('e2fsprogs' 'db' 'openssl>=1.0.0')
 makedepends=('perl')
 rodepends=("libkrb5=$pkgver")
-archs=('i686' 'ppc' 'x86_64' 'arm')
+archs=('i686' 'x86_64' 'arm')
 groups=('lib-extra')
 up2date="Flastarchive ${url}dist/index.html -signed.tar"
-source=(http://web.mit.edu/kerberos/dist/$pkgname/1.9/$pkgname-$pkgver-signed.tar)
-sha1sums=('aa06f778ee1f9791cd4c5cf4c9e9465769ffec92')
+source=(http://web.mit.edu/kerberos/dist/$pkgname/1.10/$pkgname-$pkgver-signed.tar)
+sha1sums=('f9f3b77173f68b268b43e4f9c29bf7c9f3fd1f0e')
 #signature=($source.asc)
 #signatures=(http://web.mit.edu/kerberos/www/$pkgname-$pkgver/$pkgname-$pkgver.sig)
 
@@ -22,7 +22,7 @@ subpkgs=('libkrb5')
 subdescs=('krb5 libraries files.')
 subdepends=('e2fsprogs db libgssglue')
 subgroups=('lib')
-subarchs=('i686 ppc x86_64 arm')
+subarchs=('i686 x86_64 arm')
 
 build() {
 	Fextract $pkgname-$pkgver.tar.gz

@@ -3,14 +3,14 @@
 
 pkgname=json-glib
 pkgver=0.14.2
-pkgrel=1
+pkgrel=2
 pkgdesc="JSON library built on GLib"
 url="http://live.gnome.org/JsonGlib"
 Finclude gnome
 depends=('glib2')
 makedepends=('gobject-introspection')
 groups=('devel')
-archs=('i686' 'x86_64' 'ppc')
+archs=('i686' 'x86_64')
 sha1sums=('eecad8c1c9da35d097205708c348cc6ee391ebfa')
 
 # optimization OK

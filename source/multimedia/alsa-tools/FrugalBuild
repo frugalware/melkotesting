@@ -1,25 +1,26 @@
 # Compiling Time: 0.42 SBU
-# Maintainer: Miklos Vajna <vmiklos@frugalware.org>
+# Maintainer: James Buren <ryuo@frugalware.org>
+# Contributor: Miklos Vajna <vmiklos@frugalware.org>
 
 pkgname=alsa-tools
-pkgver=1.0.24.1
+pkgver=1.0.25
 pkgrel=2
 pkgdesc="Tools for ALSA."
 url="http://www.alsa-project.org"
-depends=('alsa-lib' 'libstdc++')
+depends=('alsa-lib>=1.0.25' 'libstdc++')
 groups=('multimedia')
-archs=('i686' 'x86_64' 'ppc')
+archs=('i686' 'x86_64')
 source=(ftp://ftp.alsa-project.org/pub/tools/$pkgname-$pkgver.tar.bz2)
 up2date="lynx -dump $url |grep -om1 'alsa-tools-\(.*\)tar.bz2'|sed 's/.*tools-\(.*\).t.*/\1/'"
 options=('scriptlet')
-sha1sums=('1b3e3c13caf16760d6a7523c08ef7b75ff09e238')
+sha1sums=('de854f4c5c4df2d847ce64bd8a631bdb51ef9889')
 
 subpkgs=("$pkgname-gui")
 subdescs=('GUI based ALSA utilities.')
 subdepends=("gtk+2 fltk")
 subrodepends=("$pkgname=$pkgver")
 subgroups=('xmultimedia-extra')
-subarchs=('i686 x86_64 ppc')
+subarchs=('i686 x86_64')
 
 build()
 {

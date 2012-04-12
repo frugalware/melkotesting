@@ -3,7 +3,7 @@
 # Contributor: Priyank Gosalia <priyankmg@gmail.com>
 
 pkgname=quodlibet
-pkgver=2.3.2
+pkgver=2.4
 pkgrel=1
 pkgdesc="QuodLibet is a GTK+ based audio player written in Python."
 url="http://www.sacredchao.net/quodlibet/wiki"
@@ -12,7 +12,7 @@ depends=('gtk+2>=2.20.0-2' 'pygtk>=2.16.0-2' 'mutagen' 'pyvorbis' 'pymad' 'gst-p
 	'gnome-python-extras' 'python-ctypes' 'gst-plugins-good' \
 	'gst-plugins-base-ogg' 'gst-plugins-base-vorbis' \
 	'gst-plugins-ugly-mad' 'gst-plugins-good-flac' \
-	'gst-plugins-base-alsa' 'gst-plugins-good-esd' \
+	'gst-plugins-base-alsa' \
 	'gst-plugins-good-gconf' 'gst-plugins-base-gnomevfs' \
 	'gst-plugins-bad-musepack' 'gst-plugins-bad' \
 	'gst-plugins-good-wavpack' 'gst-plugins-base-oil' \
@@ -21,12 +21,12 @@ Finclude googlecode
 groups=('gnome-extra')
 archs=('i686' 'x86_64')
 options=('scriptlet')
-sha1sums=('21bc5fb988ca6c09959fc7212c05272a126a5be5')
+sha1sums=('7e11cda2827bb0d04b7d2b7854b8a2854ed074c8')
 
 build() {
   Fbuild
-  Ficonrel $pkgname/images/exfalso.png
-  Ficonrel $pkgname/images/$pkgname.png
+  Ficonrel $pkgname/images/hicolor/64x64/apps/exfalso.png
+  Ficonrel $pkgname/images/hicolor/64x64/apps/$pkgname.png
 }
 
 # optimization OK

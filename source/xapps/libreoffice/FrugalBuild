@@ -3,10 +3,10 @@
 # Contributor: Laszlo Dvornik <dvornik@gnome.hu>
 
 pkgname=libreoffice
-pkgver=3.5.0.3
+pkgver=3.5.2.2
 minor=${pkgver%%.?} # x.y.z
 major=${pkgver%%.?.?} # x.y
-pkgrel=2
+pkgrel=1
 pkgdesc="LibreOffice Productivity Suite, a fork of OpenOffice.org."
 url="http://www.documentfoundation.org/download/"
 _F_gnome_desktop="y"
@@ -23,15 +23,16 @@ makedepends=('intltool' 'tcsh' 'ecj' 'apache-ant' \
 	     'patch>=2.5.9' 'xorg-server' 'gstreamer>=0.10.30-2' 'gst-plugins-base' \
 	     'procps' 'openldap' 'gperf' 'xulrunner' 'kdelibs-compiletime' 'libwps' \
 	     'mdbtools' 'mdds' 'junit' 'lucene' 'cppunit' 'bsh' 'vigra' \
-	     'mythes' 'hyphen' 'translate-toolkit' 'urw-fonts')
+	     'mythes' 'hyphen' 'translate-toolkit' 'urw-fonts' 'postgresql')
 groups=('xapps')
 archs=('i686' 'x86_64')
-mirror="http://dev-builds.libreoffice.org/pre-releases/src"
-#mirror="http://download.documentfoundation.org/libreoffice/src/$minor"
-_F_archive_name="libreoffice-bootstrap"
-up2date="Flasttar $mirror"
+#mirror="http://dev-builds.libreoffice.org/pre-releases/src"
+mirror="http://download.documentfoundation.org/libreoffice/src/$minor"
+_F_archive_name="libreoffice-core"
+up2date="Flasttar http://dev-builds.libreoffice.org/pre-releases/src/"
 modules=('core' 'binfilter' 'help' 'translations')
 source=()
+signatures=()
 for i in ${modules[@]}
 do
 	source=(${source[@]} $mirror/libreoffice-$i-$pkgver.tar.xz)
@@ -53,22 +54,28 @@ done
 NOEXTRACT=1
 options=(${options[@]} 'scriptlet')
 
-subpkgs=("$pkgname-kde" "$pkgname-gnome" "$pkgname-sdk" "$pkgname-mozilla")
+subpkgs=("$pkgname-kde" "$pkgname-gnome" "$pkgname-sdk" "$pkgname-mozilla" "$pkgname-postgresql" "$pkgname-binfilter")
 subdescs=("$pkgname kde integration" "$pkgname gnome integration" \
 	"The $pkgname Software Development Kit" \
-	"$pkgname mozilla integration")
+	"$pkgname mozilla integration" \
+	"$pkgname postgresql SDBC driver" \
+	"Legacy filters (e.g. StarOffice 5.2) for LibreOffice")
 subdepends=("kdelibs>=$_F_kde_ver" \
 	"gnome-vfs libbonobo evolution-data-server-ldap" \
 	"openjdk>=6" \
+	"" \
+	"libpq" \
 	"")
 subrodepends=("$pkgname=$pkgver" \
 	"$pkgname=$pkgver" \
 	"$pkgname=$pkgver" \
+	"$pkgname=$pkgver" \
+	"$pkgname=$pkgver" \
 	"$pkgname=$pkgver")
-subarchs=('i686 x86_64' 'i686 x86_64' 'i686 x86_64' 'i686 x86_64')
+subarchs=('i686 x86_64' 'i686 x86_64' 'i686 x86_64' 'i686 x86_64' 'i686 x86_64' 'i686 x86_64')
 # gnome subpkg goes to extra as it pulls in deprecated pkgs
-subgroups=('kde' 'gnome-extra' 'devel-extra' 'xapps')
-subinstall=("" "$_F_gnome_scriptlet" "" "")
+subgroups=('kde' 'gnome-extra' 'devel-extra' 'xapps' 'xapps-extra' 'xapps-extra')
+subinstall=("" "$_F_gnome_scriptlet" "" "" "" "")
 
 # sed ':a;N;$!ba;s/\\\n//g' solenv/inc/langlist.mk|grep ^completelangiso=|sed 's/completelangiso=//;s/en-US //'
 completelangiso=(af ar as ast be bg bn bo br brx bs ca ca-XV cs cy da de dgo dz
@@ -110,8 +117,7 @@ do
         i=$(($i+1))
 done
 
-# TODO: report-builder wiki-publisher
-extensions=(presenter-minimizer presenter-console pdfimport)
+extensions=(presenter-minimizer presenter-console pdfimport nlpsolver scripting-beanshell)
 for i in ${extensions[@]}
 do
 	subpkgs=("${subpkgs[@]}" "$pkgname-$i")
@@ -122,13 +128,6 @@ do
 	subgroups=("${subgroups[@]}" "xapps-extra")
 	subarchs=("${subarchs[@]}" "i686 x86_64")
 done
-
-install_bundled_extension()
-{
-	Fmkdir /usr/lib/libreoffice/share/extensions/$1
-	unzip -qqo solver/unxlng*/bin/$2 -d $Fdestdir/usr/lib/libreoffice/share/extensions/$1 || Fdie
-	Fsplit $pkgname-$3 /usr/lib/libreoffice/share/extensions/$1
-}
 
 build()
 {
@@ -189,7 +188,6 @@ build()
 		--without-afms \
 		--with-system-jars \
 		--disable-ext-report-builder \
-		--disable-postgresql-sdbc \
 		--with-system-dicts \
 		--with-external-dict-dir=/usr/share/myspell \
 		--without-myspell-dicts \
@@ -229,11 +227,6 @@ build()
 
 	Fmanrel sysui/desktop/man/*.1
 
-	# Enable and split extensions
-	install_bundled_extension presentation-minimizer minimizer/presentation-minimizer.oxt presenter-minimizer
-	install_bundled_extension presenter-screen presenter/presenter-screen.oxt presenter-console
-	install_bundled_extension pdfimport pdfimport/pdfimport.oxt pdfimport
-
 	# Enable and split the mozilla plugin
 	Fmkdir /usr/lib/mozilla/plugins
 	Fln /usr/lib/$pkgname/program/libnpsoplugin.so /usr/lib/mozilla/plugins/
@@ -266,6 +259,13 @@ build()
 	# Split SDK
 	Fsplit $pkgname-sdk $(grep -v '^%dir' $Fdestdir/gid_Module_Root_SDK|sort -u)
 
+	Fsplit $pkgname-binfilter $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_Binfilter|sort -u)
+	Fsplit $pkgname-postgresql $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_PostgresqlSdbc|sort -u)
+	Fsplit $pkgname-presenter-minimizer $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_Extensions_MINIMIZER|sort -u)
+	Fsplit $pkgname-presenter-console $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_Extensions_PRESENTER_SCREEN|sort -u)
+	Fsplit $pkgname-pdfimport $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_Extensions_PDFIMPORT|sort -u)
+	Fsplit $pkgname-nlpsolver $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_Extensions_NLPSolver|sort -u)
+	Fsplit $pkgname-scripting-beanshell $(grep -v '^%dir' $Fdestdir/gid_Module_Optional_Extensions_Script_Provider_For_Beanshell|sort -u)
 	# The rest stays.
 	rm -f $Fdestdir/gid_*
 }

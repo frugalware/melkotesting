@@ -3,20 +3,20 @@
 # Contributor: AlexExtreme <alex@alex-smith.me.uk>
 
 pkgname=libgda
-pkgver=4.2.12
+pkgver=5.0.3
 pkgrel=1
 pkgdesc="An interface to the GDA architecture"
 url="http://www.gnome-db.org/"
 depends=('glib2' 'libxslt' 'readline' 'popt' 'libpq' 'libmysqlclient>=5.5.10' 'libldap' 'gamin')
 makedepends=('intltool' 'perl-xml-parser' 'db>=4.7.25' 'unixodbc' 'gtk-doc' 'openldap' 'mysql' 'postgresql' 'gnome-common')
 groups=('lib')
-archs=('i686' 'x86_64' 'ppc')
+archs=('i686' 'x86_64')
 _F_gnome_scrollkeeper="y"
 options=('scriptlet')
 _F_gnome_ext=".tar.xz"
 Finclude gnome gnome-scriptlet
 Fconfopts="$Fconfopts --disable-gtk-doc --with-sqlite=/usr"
-sha1sums=('a7fb768ddb58742dbe102c112eb44bb08fafd708')
+sha1sums=('151159134f4083e86a3b556fd80c48376e584290')
 unset MAKEFLAGS
 
 # optimization OK

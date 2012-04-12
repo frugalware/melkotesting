@@ -3,32 +3,32 @@
 # Contributor: AlexExtreme <alex@alex-smith.me.uk>
 
 pkgname=gnome-frugalware
-pkgver=1.7
+pkgver=1.7.1
 pkgrel=1
 pkgdesc="Gnome default theme for Frugalware Linux."
 url="http://frugalware.org"
 rodepends=('gnome-themes' "gtk+3-theme-frugalware=$pkgver" \
 	'frugalware-cursor-theme')
 depends=()
-groups=('gnome')
-archs=('i686' 'x86_64' 'ppc')
+groups=('gnome' 'gnome-minimal')
+archs=('i686' 'x86_64')
 up2date="lynx -dump http://ftp.frugalware.org/pub/other/artwork/gnome-theme | Flasttar"
 source=(http://ftp.frugalware.org/pub/other/artwork/gnome-theme/$pkgname-$pkgver.tar.bz2)
-sha1sums=('c75f1eccd9b91dda1da6490b31a80ed8cda28f10')
+sha1sums=('53c1949c22b5b7b86c01817cd091bfec06396dff')
 
 subpkgs=('gtk+2-theme-frugalware')
 subdescs=('Frugalware GTK+2 theme')
 subdepends=('gtk+2-engines>=2.16.1 gtk+2-engines-murrine gtk+2-engines-equinox')
 subrodepends=('frugalware-gnome-icon-theme')
 subgroups=('gnome')
-subarchs=('i686 x86_64 ppc')
+subarchs=('i686 x86_64')
 
 subpkgs=("${subpkgs[@]}" 'gtk+3-theme-frugalware')
 subdescs=("${subdescs[@]}" 'Frugalware GTK+3 theme')
 subdepends=("${subdepends[@]}" "gtk+3 gtk+3-engines gtk+3-engines-unico")
 subrodepends=("${subrodepends[@]}" "$pkgname=$pkgver")
-subgroups=("${subgroups[@]}" 'gnome')
-subarchs=("${subarchs[@]}" 'i686 x86_64 ppc')
+subgroups=("${subgroups[@]}" 'gnome gnome-minimal')
+subarchs=("${subarchs[@]}" 'i686 x86_64')
 
 build() {
 	Fcd $pkgname
@@ -49,4 +49,3 @@ build() {
 	Fsplit gtk+2-theme-frugalware usr/share/themes/Frugalware/gtk-2.0
 	Fsplit gtk+3-theme-frugalware usr/share/themes/Frugalware/gtk-3.0
 }
-

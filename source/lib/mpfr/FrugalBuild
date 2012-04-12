@@ -1,9 +1,10 @@
 # Compiling Time: 0.74 SBU
-# Maintainer: Miklos Vajna <vmiklos@frugalware.org>
+# Maintainer: James Buren <ryuo@frugalware.org>
+# Contributor: Miklos Vajna <vmiklos@frugalware.org>
 
 pkgname=mpfr
 basever=3.1.0
-patchver=04
+patchver=08
 if [ -n "$patchver" ]; then
 	pkgver=${basever}_$patchver
 else
@@ -14,7 +15,7 @@ pkgdesc="Library for multiple-precision floating-point computations."
 url="http://www.mpfr.org/mpfr-current/"
 depends=('gmp>=5.0.1-2')
 groups=('lib' 'devel-core')
-archs=('i686' 'x86_64' 'ppc' 'arm')
+archs=('i686' 'x86_64' 'arm')
 up2date="echo \$(lynx -dump $url |grep version|sed 's/.*n \(.*\) (.*/\1/;q')_\$(lynx -source -dump $url |grep 'patch[0-9]\{2\}'|sed -n 's/.*patch\([0-9]\{2\}\).*/\1/;$ p')|sed 's/_$//'"
 source=(http://www.mpfr.org/mpfr-current/mpfr-$basever.tar.bz2)
 if [ -n "$patchver" ]; then
@@ -27,7 +28,11 @@ sha1sums=('9ba6dfe62dad298f0570daf182db31660f7f016c' \
           'c9c05e00aee2ff787ca948265aa310fc23dca72d' \
           '70b4669d2e05b1ca72c24ada0334627616b4e82a' \
           '1da101f115cff587422b746a3fdcf6943b841d41' \
-          'daed39c3253defef0f8381b1c4a865016c5ae1be')
+          'daed39c3253defef0f8381b1c4a865016c5ae1be' \
+          '02be8f019d66bebf27c8610b66bc40a98780cb7d' \
+          '48f9b2459e3d8aaa15619597dd6c49830a68816d' \
+          '593c9e51265cd3117fd5c5652a43c821f5ec992f' \
+          '00ac40de80c7386b7a4a3089951d7cb0731d9145')
 options=('noversrc')
 _F_cd_path=$pkgname-$basever
 Fconfopts="$Fconfopts --enable-shared --enable-static"

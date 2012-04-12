@@ -1,0 +1,29 @@
+# Compiling Time: 0.64 SBU
+# Maintainer: Devil505 <devil505linuxi@gmail.com>
+# Contribtor: voroskoi <voroskoi@frugalware.org>
+
+pkgname=smplayer
+pkgver=0.8.0
+pkgrel=1
+pkgdesc="SMPlayer intends to be a complete front-end for MPlayer."
+makedepends=('qt4-linguist')
+depends=('libqtgui' 'libqtnetwork' 'libqt3support')
+replaces=('kplayer')
+rodepends=('mplayer')
+archs=('i686' 'x86_64')
+groups=('xapps-extra')
+_F_sourceforge_ext=.tar.bz2
+_F_gnome_iconcache="y"
+_F_gnome_desktop="y"
+Finclude kde sourceforge gnome-scriptlet
+sha1sums=('2cb2a50b5e6cc518fb9984a5e4b2c87c8cb98a99')
+
+build() {
+	Fcd
+	sed -i 's:#\(DEFINES += NO_DEBUG_ON_CONSOLE\):\1:' src/smplayer.pro || Fdie
+	make PREFIX=/usr || Fdie
+	make PREFIX=$Fdestdir/usr install || Fdie
+	Fbuild_gnome_scriptlet
+}
+
+# optimization OK
