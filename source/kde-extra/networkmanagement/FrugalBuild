@@ -2,19 +2,18 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=networkmanagement
-pkgver=0.9.0
+pkgver=0.9.0.1
 pkgrel=1
 pkgdesc="KDE networkmanager and applet."
-#_F_cmake_type="Debug"
 Finclude kde
-depends=('networkmanager>=0.9.1.90' 'libkdesolid>=$_F_kde_ver' 'libplasma>=$_F_kde_ver' \
-         'libqtsql>=$_F_kde_qtver' 'libqtdeclarative>=$_F_kde_qtver' 'libknotify>=$_F_kde_ver' 'libkutils>=$_F_kde_ver')
-makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" "libqt3support>=$_F_kde_qtver")
+depends=('networkmanager>=0.9.1.90' "libkdesolid>=$_F_kde_ver" "libplasma>=$_F_kde_ver" \
+         "libqtsql>=$_F_kde_qtver" "libqtdeclarative>=$_F_kde_qtver" "libknotify>=$_F_kde_ver" "libkutils>=$_F_kde_ver")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" "libqt3support>=$_F_kde_qtver" "kdelibs>=$_F_kde_ver")
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 up2date="Flastverdir $_F_kde_mirror/unstable/$pkgname/"
 source=($_F_kde_mirror/unstable/$pkgname/$pkgver/src/$pkgname-$pkgver.tar.bz2)
-sha1sums=('6863905534c2c58534992fad197dd794105b8e19')
+sha1sums=('75e16397d00de06947fa183f09632caed11d8857')
 
 replaces=('knetworkmanager' 'plasma-applet-networkmanager')
 conflicts=("${replaces[@]}")
