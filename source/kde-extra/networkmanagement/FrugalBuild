@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=networkmanagement
-pkgver=0.9.0.1
+pkgver=0.9.0.2
 pkgrel=1
 pkgdesc="KDE networkmanager and applet."
 Finclude kde
@@ -13,7 +13,7 @@ groups=('kde-extra')
 archs=('i686' 'x86_64')
 up2date="Flastverdir $_F_kde_mirror/unstable/$pkgname/"
 source=($_F_kde_mirror/unstable/$pkgname/$pkgver/src/$pkgname-$pkgver.tar.bz2)
-sha1sums=('75e16397d00de06947fa183f09632caed11d8857')
+sha1sums=('58b530d0dc97cc742f24413a54c58f20318cfa14')
 
 replaces=('knetworkmanager' 'plasma-applet-networkmanager')
 conflicts=("${replaces[@]}")
