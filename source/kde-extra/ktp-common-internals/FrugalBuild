@@ -8,7 +8,7 @@ pkgdesc="Common libraries for telepathy-kde."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
-depends=('telepathy-qt4>=0.9.0' "libkutils>=$_F_kde_ver")
+depends=('telepathy-qt4>=0.9.1' "libkutils>=$_F_kde_ver")
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
