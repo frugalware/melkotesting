@@ -1,4 +1,4 @@
-# Compiling Time: 0.05 SBU
+# Compiling Time: 0.06 SBU
 # Maintainer: centuri0 <achevaux at gmail dot com>
 
 pkgname=libksane
@@ -8,6 +8,6 @@ groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
 depends=("kdelibs-core>=$_F_kde_ver" "kdebase-runtime-phonon>=$_F_kde_ver" "sane-backends")
-makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" "kdelibs>=$_F_kde_ver")
+makedepends=("${makedepends[@]}" "kdelibs-compiletime>=$_F_kde_ver" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 
 # optimization OK

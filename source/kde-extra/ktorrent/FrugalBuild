@@ -2,7 +2,7 @@
 # Maintainer: voroskoi <voroskoi@frugalware.org>
 
 pkgname=ktorrent
-pkgver=4.2.0
+pkgver=4.2.1
 pkgrel=1
 pkgdesc="KTorrent is a BitTorrent program for KDE."
 _F_cmakekde_final=OFF
@@ -12,12 +12,12 @@ depends=("${depends[@]}" \
 	"libkdesolid>=$_F_kde_ver" "libknotify>=$_F_kde_ver" \
 	"libkross>=$_F_kde_ver" "libktorrent>=1.2.0" "libkworkspace>=$_F_kde_ver" \
 	"libtaskmanager>=$_F_kde_ver" "libkdewebkit>=$_F_kde_ver")
-makedepends=("${makedepends[@]}" 'boost>=1.46.1' "kdepimlibs-compiletime>=$_F_kde_ver" "libnepomuk>=$_Fkde_ver" 'ksgmltools2' 'docbook-xsl')
+makedepends=("${makedepends[@]}" 'boost>=1.49.0' "kdelibs>=$_F_kde_ver" "kdepimlibs-compiletime>=$_F_kde_ver" "libnepomuk>=$_F_kde_ver" 'ksgmltools2' 'docbook-xsl')
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 url="http://ktorrent.org/"
 up2date="Flasttar 'http://ktorrent.org/?q=downloads'"
 source=(${url}/downloads/$pkgver/$pkgname-$pkgver.tar.bz2)
-sha1sums=('d84b7222e982655bca17a2df0c177e1f6ff5294e')
+sha1sums=('3f52c4a10011a49d304c08a3bb1290a022e0c53f')
 
 # optimization OK

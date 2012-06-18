@@ -3,11 +3,11 @@
 # Contributor: Marius Cirsta <mforce2 @ gmail dot com>
 
 pkgname=eiskaltdc
-pkgver=2.2.6
-pkgrel=2
+pkgver=2.2.7
+pkgrel=1
 pkgdesc="EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol"
 depends=('openssl' 'libqtgui' 'libqtdbus' 'qt4-linguist' 'aspell' 'libuuid' 'libqtxml')
-makedepends=('boost>=1.46.1')
+makedepends=('boost>=1.49.0')
 _F_googlecode_name=$pkgname"pp"
 _F_googlecode_dirname=$pkgname
 _F_googlecode_ext=".tar.xz"
@@ -17,7 +17,7 @@ archs=('i686' 'x86_64')
 Finclude googlecode cmake
 _F_gnome_iconcache="yes"
 replaces=('valknut')
-sha1sums=('696a3a26b551848a336a58c7bb241b8d234851fd')
+sha1sums=('ced990e57764983397c62972f1d2a3841ce4df9c')
 
 
 # optimization OK

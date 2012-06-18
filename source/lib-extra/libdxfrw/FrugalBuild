@@ -1,0 +1,15 @@
+# Compiling Time: 0.19 SBU
+# Maintainer: Slown <slown@frugalware.org>
+
+pkgname=libdxfrw
+pkgver=0.5.0
+pkgrel=1
+pkgdesc="C++ library to read/write DXF files in binary and ascii form"
+depends=('libstdc++')
+groups=('lib-extra')
+archs=('i686' 'x86_64')
+_F_sourceforge_ext=".tar.bz2"
+Finclude sourceforge
+sha1sums=('e4ccfe055a4848a0934483835c25e3e32312cd9f')
+
+# optimization OK

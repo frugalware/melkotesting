@@ -2,13 +2,13 @@
 # Maintainer: centuri0 <achevaux at gmail dot com>
 
 pkgname=kde-l10n
-pkgver=4.8.2
+pkgver=4.8.4
 pkgrel=1
 pkgdesc="Dummy package."
 url="http://www.kde.org"
 pkgurl="ftp://ftp.kde.org/pub/kde/stable/$pkgver/src/$pkgname"
 depends=()
-makedepends=("kdelibs" "automoc4" "docbook-xsl")
+makedepends=("kdelibs>=$pkgver" "automoc4" "docbook-xsl" "kdelibs-compiletime>=$pkgver")
 groups=('locale-extra')
 archs=('i686' 'x86_64')
 options=('nodocs' 'scriptlet')
@@ -67,58 +67,58 @@ build()
 
 
 
-sha1sums=('788c0c025bf1ce8534477809094d03f2f23b8e5c' \
-          '350260da142ef0f089b6ee016536b258791380fe' \
-          'd17c6c6db248ab1846bd24414d9269755979eae2' \
-          'c279fff28b8bccd199b822436bcd3c709d9113db' \
-          'efb413513f865f42fb3d8da25c297ba03b68c5aa' \
-          '1f35e68927a662933091afb8686fca750c60db76' \
-          '9c3a8cdc6e02a2d0690d5d0bb34941d86ba174e9' \
-          '8878e7331033e513cc5038f2b007cb4a0bab9c8b' \
-          '3459e757cf2a8f5beefb38c4308bd1d30d831d10' \
-          '22784b4eac2b9f535fbefc246a36d077e206ec74' \
-          'a9c310eaf7c1acdd52e072a52755d0734086740b' \
-          'c333715f6194c4b565203e08a68aae275768276f' \
-          'e499647dbf5fa4bb96c73bd7a5266428bebd3356' \
-          '240e051b6a88e35c56c02db6f51df19c4e9a7c6e' \
-          'd3ec0717112d3a4a9b6c860a9a65e6f493a18a25' \
-          '0a1d0b00625e740a20f2da5554e7c6f2d793048c' \
-          'b9ec8d0bf9ae2c8c95347f1a1b8ca0000b6cacef' \
-          'd17ed3da1c8e1b0274870f25ee9f01403d4f22e9' \
-          'e3667ab85fd1bed46c97ec2f1d6235ee75464243' \
-          'b495f95aa81219b413231137ea5a4f7e2b2827ae' \
-          '5f4a923394fdfbe5e80dacc67eea57d791813d88' \
-          '2e777fa87d9dddc2212288dbb372624c0b3e3435' \
-          'cd68eb47f63adc6ed2c42dcade6baab20dcf295f' \
-          'fdeac21828ae9ff7dd313519a09b58d6dcdffbe5' \
-          '948f7cc7de29bad329a8a5f36a8655002173ace4' \
-          '5cee5f94fcd4c495eaf3a8be32dbea6ae0b55806' \
-          'f7e567d3fd97b983962c734b15eb910939e4f8b2' \
-          '7b4e4b13f419a554241ba49643d32c7c687f463c' \
-          '4e0051ac0dc5f5165fedabbda88609fa4707f8ce' \
-          '1dda78f430d8e2cbb6291e0a26cdfabed38703a6' \
-          '03fff2f26f597375e5d264a51b85548ab73ba9a9' \
-          '7f3689f716208835aa5efdf6eeffeaf402ccb31a' \
-          '50a10bffe55a5b875c398115fabcc33f5fbd7541' \
-          'd6f5682a8f091338a1fb66784309b8c9c67fa795' \
-          'c74fdab15b121df220a7a675794d94480f3f8377' \
-          'fef80e5c9bff1bf8be4c371a483f3f9f14b558ca' \
-          'ec34f8d3e19db184df3c3e24b641138366dcc447' \
-          'bb3ec80b9d130c5b85a764a573e523f2e1e38aa8' \
-          'e955964db78a7a7da009adeddfb04affbad5cac4' \
-          '23461b40c72689ebb9056ec6c43d4ad860e40e7d' \
-          '79b2cdd138f90b6299c68b855534a405f8c224b4' \
-          'ac15cc48c35045e9756dabf33c35dff156eb388f' \
-          '4ce44bda84e5237d7d6ca06ad4c736970eda7024' \
-          '08c3b7f8a220e9eef30727201c72ae2ac09d77d5' \
-          'ab29e6f9e45df47518cc4f49c9390a1fb2c49537' \
-          '2fbd34ae9a50dbd4a86140c98ba205bb84aad2a7' \
-          '946122cd702457f7536f91d12e631fffd0f2e0d2' \
-          'de0cf99710004e8fe18f85b79b5ead645432645e' \
-          'a6d89dcda6296efeb2963e8206a6124f1b487c24' \
-          '3b60aa19cdc371d71dcf391c1b78ede7670e4863' \
-          '768442cd7de011cef542e67f81c8f42b8b204805' \
-          'a0ad1f1426508052395119ab1ea8bf7a39e234a8' \
-          '607a192fec7d2977061726a437873f644718b20e' \
-          '58d06ffd89215cf8d695fb61011d9c551a88b424' \
-          '125cb7508234d41fb8e4c233d9b8123e1ae456ce')
+sha1sums=('17f51a6b2b54b4f53e26d6ffc0350d699f03f859' \
+          '64c1f7453a8cda2d9021fdedde361558b5f06351' \
+          'd8fe9555d0bdd015ae62d7314e0a041d67f0c874' \
+          '43227a18c3ae97fdb8b72227ae93f10f1d8b8b9b' \
+          '5773d06c59a3ad4510989159ef04c78cd8f102ff' \
+          '3916b03d0bd8589d29c7f47e2e57f8011e603aff' \
+          '9e53ed0379916bbad1a77d9e7cb88eda23b3ed0c' \
+          '034e1d9276eb75735681e2d9ae71edfe7bdf8767' \
+          '032ba7e7116cbe2d6d9960787cb3d903d9f60573' \
+          'fc17fb9c322b1de05ef3d1c5b5bbd4b8e2fc0514' \
+          '03c15aa3ba5e2f658a3fb19278cbcd97661fa427' \
+          '1caabd75c65648bcc6e4b1e1663df5223bec55da' \
+          '39aadc887d35111b6592da68f16431c1275438f1' \
+          '5663af6762219b087d638146d039ef804f284d8c' \
+          '4204172bb6bf1b4f0a662c5f547eaa429c0b59bc' \
+          '37a1f532890875b04a3168a50c41e3734d6721a6' \
+          '21323136a8f7c09860a3a763e59e5eb2fae63359' \
+          '515b17d196e5869ca5aa35de89b314e438335985' \
+          '2c58d2a5da035adb0a1f8c13deab61729c2e800b' \
+          '2a94811713fadd9e97febbcdcc9d84e70bf2c63b' \
+          '308f0b89fbf61ffa0fbef1412a986dbcae6b2bdb' \
+          '8445b88a1711a9213ae08407efd4c107ab384941' \
+          'c1490e14a3b1ed59e128eefa81a6a681564ef782' \
+          '7c48440a8b7f5cd2310d001211020c50aa1febc7' \
+          'e60281352dd1b1e56b699c022eaad8bf4941384f' \
+          'd7f7b88546ffe5392db651d32cf11a2abb69897d' \
+          '784453e6e8ecdf8e850f19d3ad9fbd9aef876b4b' \
+          '5264722aabb4fd5cc6376784a4734ffbf8b1aae8' \
+          'e5adc55eb510905c6cac1ffa0e5922ec958b5619' \
+          '55ee3725cc1f861bef2d76f4f20b9cdcffa95ff7' \
+          'f660785b65e965d090f5d0bcd13d7cda58ec0627' \
+          '7faf7478cf7728c95f17139816fcb3ed3f908a11' \
+          'c1f02d71c445294be5966d931b33ac7317202f6a' \
+          'c79535244f22fb3743a3ae6c992ee45f94395df5' \
+          'e03725e408aa66e6e733986578f89cf22df444ba' \
+          '77a7186316c0eb55ad484c32e69ea2cdb90151a9' \
+          '5d3f291fd1b042dcc767c36739640143ae58a0c2' \
+          '79454da814e6cfd3790e6897c2c63f9d56cf4a33' \
+          '17b92717abe46e13c507528fa867066dfba61bb5' \
+          '51818dcca6d4fea2d41135f39b7d9658aa0610a0' \
+          '62bfc63e2485545aa4e8032bdc0915ec17583b9c' \
+          '7362f4f2c6fdad77da76d6cf298187590797af01' \
+          'fac0e085191bb17629cc7f9c3c9cf9bc21faa4bc' \
+          'ac723fbea382c84b70d101af21dd69d5e7b6895b' \
+          '865c86a8c39e639b11a729df32246c13a82f6f44' \
+          '41ef394cd93b79b513d4bee3502a98e98e133e01' \
+          '407d97f239b92de4d9c325b8a419e13e1a604f99' \
+          '7f91ce0c7ba70abac0d96255fbe9128fff2c31d6' \
+          '69da4db987bffdcf176ec682e35f5243920244e0' \
+          '7049218ef8b583c4399c1d70b1fd1f83bee9d7e9' \
+          '6ded69e4ba96f26e3c6857b9b686909fec29dfc5' \
+          'f4144350581f862affebf3650d2a338e7d566555' \
+          'a7cb53c18329e9514a5c8222fda8a902b5b496ec' \
+          '90fe7eec87774dfdd4c37a8aa204d8f83651d307' \
+          '8b6969239a1c8abcd4946223568d0af88140929f')

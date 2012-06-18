@@ -2,7 +2,7 @@
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=python-larch
-pkgver=0.30
+pkgver=1.20120527
 pkgrel=1
 pkgdesc="Python B-tree library"
 url="http://liw.fi/larch"
@@ -13,10 +13,11 @@ archs=('i686' 'x86_64')
 Fpkgversep="_"
 up2date="lynx -dump http://code.liw.fi/debian/pool/main/p/python-larch | Flastarchive .orig.tar.gz"
 source=(http://code.liw.fi/debian/pool/main/p/$pkgname/$pkgname$Fpkgversep$pkgver.orig.tar.gz)
-_F_cd_path="$pkgname-$pkgver"
-sha1sums=('2c12fd632f3a11356ac40ac03fa7c07ccb790d31')
+_F_cd_path="larch-$pkgver"
+sha1sums=('7c2387b5a837a44253c3a66572eca405ad2a3dec')
 
 build() {
 	Fcd
+	python setup.py build || Fdie
 	python setup.py install --root=$Fdestdir || Fdie
 }

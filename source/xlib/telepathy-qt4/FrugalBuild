@@ -3,18 +3,20 @@
 
 pkgname=telepathy-qt4
 _F_archive_name=telepathy-qt
-pkgver=0.9.0
+pkgver=0.9.1
 pkgrel=1
 pkgdesc="Telepathy Qt4 bindings"
-depends=('libqtdbus' 'libqtnetwork' 'libgcc' 'telepathy-farsight')
+depends=('libqtdbus' 'libqtnetwork' 'libgcc' 'telepathy-farsight' 'telepathy-farstream')
 makedepends=('libqttest' 'libqtgui')
 groups=('xlib')
 archs=('i686' 'x86_64')
 Finclude cmake
 url="http://telepathy.freedesktop.org/wiki/Telepathy-Qt4"
 up2date="Flasttar http://telepathy.freedesktop.org/releases/$_F_archive_name"
-source=(http://telepathy.freedesktop.org/releases/$_F_archive_name/$_F_archive_name-$pkgver.tar.gz)
-sha1sums=('6d977a76b9854ceec933444507c6a11a0333af39')
+source=(http://telepathy.freedesktop.org/releases/$_F_archive_name/$_F_archive_name-$pkgver.tar.gz \
+	gcc47.patch)
+sha1sums=('c2a8e6d36f75b871919b08688cc10c5567d6c103' \
+          'd60b166ca3c69a55e8cc49029726773d64cd1789')
 
 build(){
 	CMake_prepare_build
