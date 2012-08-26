@@ -2,17 +2,17 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-common-internals
-pkgver=0.4.0
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="Common libraries for telepathy-kde."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
-depends=('telepathy-qt4>=0.9.1' "libkutils>=$_F_kde_ver")
+depends=('telepathy-qt4>=0.9.3' "libkutils>=$_F_kde_ver")
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('db3bdbd93a27c77a1e593e84252cf2950ca773e6')
+sha1sums=('34bac58049ede6df4fce1215fbc3b4ffc9671cba')
 replaces=('telepathy-kde-presence-dataengine')
 
 # optimization OK
