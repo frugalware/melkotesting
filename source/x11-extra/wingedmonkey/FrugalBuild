@@ -2,7 +2,7 @@
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=wingedmonkey
-pkgver=0.2.2
+pkgver=0.2.4
 pkgrel=1
 pkgdesc="Hybrid window manager for X Windowing System with command-line interface"
 depends=('libx11')
@@ -10,6 +10,6 @@ groups=('x11-extra')
 archs=('i686' 'x86_64')
 _F_sourceforge_ext=".tar.bz2"
 Finclude sourceforge
-sha1sums=('c6d5e89827a7588c78da108d683fb8b0b3a82278')
+sha1sums=('f83981b553834339637acb16dddbd0bd5a7de0cb')
 
 # optimization OK
