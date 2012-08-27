@@ -2,16 +2,16 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-contact-runner
-pkgver=0.4.0
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="KRunner plugin for KDE Telepathy."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
-depends=("ktp-common-internals>=0.4.0")
+depends=("ktp-common-internals>=$pkgver")
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('fe7f7d37740b732f8618b1e6129d4e7f30998b43')
+sha1sums=('ebc529387dc061ef6eba73b203100298c6aa03ba')
 
 # optimization OK
