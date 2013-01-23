@@ -2,17 +2,17 @@
 # Maintainer: Miklos Vajna <vmiklos@frugalware.org>
 
 pkgname=vigra
-pkgver=1.8.0
+pkgver=1.9.0
 pkgrel=2
 pkgdesc="The VIGRA Computer Vision Library"
 url="http://hci.iwr.uni-heidelberg.de/vigra/"
 Finclude cmake
-depends=('libjpeg' 'libpng' 'libtiff' 'libboost>=1.49.0')
-makedepends=(${makedepends} 'doxygen' 'fftw' 'boost')
+depends=('libjpeg' 'libpng' 'libtiff' 'libboost>=1.50.0')
+makedepends=(${makedepends} 'doxygen' 'fftw' 'boost>=1.50.0')
 groups=('lib-extra')
 archs=('i686' 'x86_64')
 up2date="Flastarchive $url -src.tar.gz"
 source=(http://hci.iwr.uni-heidelberg.de/vigra/vigra-$pkgver-src.tar.gz)
-sha1sums=('09f1d506c2748ebeb7d9f1c77ce387f9e7b837d2')
+sha1sums=('6e4981f4ce75932ec62df6523f577c327f885ba0')
 
 # optimization OK

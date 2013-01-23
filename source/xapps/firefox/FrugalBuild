@@ -3,12 +3,12 @@
 # Contributor: Miklos Vajna <vmiklos@frugalware.org>
 
 pkgname=firefox
-pkgver=14.0.1
+pkgver=18.0.1
 pathver=${pkgver} # version used in path names
 pkgrel=1
 pkgdesc="Mozilla Firefox web browser"
 url="http://www.mozilla.org/products/firefox/"
-depends=('gtk+2>=2.20.0-2' 'libidl' 'desktop-file-utils' 'nss>=3.13.1' 'glibc>=2.6' 'dbus-glib' 'curl>=7.19.0' 'nspr>=4.9' \
+depends=('gtk+2>=2.20.0-2' 'libidl' 'desktop-file-utils' 'nss>=3.13.6' 'glibc>=2.6' 'dbus-glib' 'curl>=7.19.0' 'nspr>=4.9.2' \
 	'lcms' 'libxau>=1.0.4' 'libxdmcp' 'libxft>=2.1.13-2' 'libxt' 'libstdc++' 'libxdamage' 'libice' 'bzip2' 'alsa-lib' \
 	'libnotify' 'wireless_tools' 'cairo' 'sqlite3>=3.7.9-2' 'startup-notification' 'libvpx')
 makedepends=('zip' 'yasm')
@@ -28,7 +28,6 @@ signatures=("${source[0]}.asc" '' '' '' '' '' '' '')
 options=('scriptlet')
 
 build() {
-	unset MAKEFLAGS
 	Fcd mozilla-release
 
 	# Autodetect language.
@@ -92,6 +91,9 @@ build() {
 
 	#Preferences file
 	Finstall 644 prefs.js usr/lib/$pkgname/defaults/pref/prefs.js
+	
+	#temporary hack to remove some nss headers conflicting with system nss
+	Frm usr/include/firefox/nss
 }
 
 # optimization OK

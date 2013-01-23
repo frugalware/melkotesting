@@ -46,7 +46,7 @@ subreplaces=("${subreplaces[@]}" "")
 subgroups=("${subgroups[@]}" "kde kde-core kde-runtime")
 subarchs=("${subarchs[@]}" "i686 x86_64")
 
-makedepends=("${makedepends[@]}" "phonon-backend-gstreamer" "phonon-backend-vlc" "pulseaudio>=1.1")
+makedepends=("${makedepends[@]}" "phonon-backend-gstreamer" "phonon-backend-vlc" "pulseaudio>=2.1")
 subpkgs=("${subpkgs[@]}" "$pkgname-kcontrol")
 subdescs=("${subdescs[@]}" "Runtime Files for Kcontrol.")
 subdepends=("${subdepends[@]}" "strigi>=0.7.2 libqtnetwork>=$Qt4 libqtxml>=$Qt4 xfsprogs-acl libqtsvg>=$Qt4 libsm libxtst libxcursor
@@ -346,6 +346,8 @@ subrodepends=("${subrodepends[@]}" "")
 subreplaces=("${subreplaces[@]}" "")
 subgroups=("${subgroups[@]}" "kde kde-core kde-runtime")
 subarchs=("${subarchs[@]}" "i686 x86_64")
+
+rodepends=("${rodepends[@]}" "$pkgname-kdesu")
 
 subpkgs=("${subpkgs[@]}" "$pkgname-docs")
 subdescs=("${subdescs[@]}" "$pkgname Documentation")

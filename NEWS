@@ -3,22 +3,41 @@ codename="Cinna"
 
 pre1=(
 "Package updates:"
+"Kernel 3.5.4"
+"GCC 4.7.2"
+"GRUB 2.00"
+"systemd 189"
+"KDE 4.9.1"
 "New features:"
+"none"
 )
 
 pre2=(
 "Package updates:"
+"Kernel 3.6.6"
+"XOrg Server 1.13.0"
+"KDE 4.9.3"
+"GNOME 3.6"
 "New features:"
+"cpu scaling on i686 and x86_64 now works out of the box for most hardware"
+"cpupower is now only needed if you want to change the default behavior"
+"video decoding acceleration libraries have been enabled in most multimedia programs"
 )
 
 rc1=(
 "Package updates:"
+"Kernel 3.7.1"
+"Boost 1.50.0"
+"KDE 4.9.5"
 "New features:"
+"mesa 7.11 drivers revived to support hardware that mesa upstream dropped support for"
 )
 
 rc2=(
 "Package updates:"
+"Kernel 3.7.3"
 "New features:"
+"none"
 )
 
 stable=(
@@ -99,7 +118,7 @@ output()
 	done
 	printf "%6c</ul>\n" ' '
 	printf "%6cPlease refer to the Frugalware <a href="http://ftp.frugalware.org/pub/frugalware/frugalware-testing/ChangeLog.txt">Testing ChangeLog</a> for more information.<br/>\n" ' '
-	printf "%6cDownload for i686: See our <a href="http://frugalware.org/download/frugalware-testing-iso">mirror list</a>. Don't forget to check the <a href="http://frugalware.org/download/frugalware-testing-iso/SHA1SUMS">integrity</a> of the install images before burning!<br/>\n" ' '
+	printf "%6cDownload for x86_64: See our <a href="http://frugalware.org/download/frugalware-testing-iso">mirror list</a>. Don't forget to check the <a href="http://frugalware.org/download/frugalware-testing-iso/SHA1SUMS">integrity</a> of the install images before burning!<br/>\n" ' '
 	printf "%6c<b>NOTE</b>: Click <a href="/docs/install#_choosing_installation_flavor">here</a> to read more about what media you need for the installation.<br/>\n" ' '
 	printf "%8c]]>\n" ' '
 	printf "%4c</content>\n" ' '

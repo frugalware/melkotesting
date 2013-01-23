@@ -2,11 +2,11 @@
 # Maintainer: Pingax <pingax@frugalware.fr>
 
 pkgname=pogo
-pkgver=0.7
+pkgver=0.8.1
 pkgrel=1
 pkgdesc="Minimalist audio player for Linux"
 groups=('xmultimedia-extra')
 archs=('i686' 'x86_64')
 depends=('python' 'gnome-python' 'mutagen' 'gst-python' 'dbus-python' 'imaging')
 Finclude launchpad
-sha1sums=('5dde34eaefcfb2a652ad7d1f4a463f8d6b07f749')
+sha1sums=('37a556bac7a9554e5bbc20d9780779f2a6820f36')

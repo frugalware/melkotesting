@@ -2,8 +2,8 @@
 # Maintainer: James Buren <ryuo@frugalware.org>
 
 pkgname=tzdata
-pkgver=2012c
-vertzcode=2012b
+pkgver=2012j
+vertzcode=2012j
 pkgrel=1
 pkgdesc="Sources for time zone and daylight saving time data"
 url="http://www.iana.org/time-zones"
@@ -16,9 +16,9 @@ _F_cd_path=.
 source=($url/repository/releases/${pkgname}$pkgver.tar.gz \
 	$url/repository/releases/tzcode${vertzcode}.tar.gz \
 	Makefile.patch)
-sha1sums=('e0cd9c2cc0ac8d90ed842133b910d4bb3bc1a6dd' \
-          '7172f71a23fb6fe8f99099f810d05366ed5d7130' \
-          'e8890681333949977ccff0b7a429ad25ed78dbcf')
+sha1sums=('69a5c9866612792b010f521c0f7b9a34c4e57192' \
+          '524808d703aa0fe54cdb19dbafb75c48028e72ad' \
+          '1bea8a04b774b52aba33ea718ff7618727eb5802')
 
 build()
 {

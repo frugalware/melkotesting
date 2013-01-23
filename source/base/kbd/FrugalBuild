@@ -3,8 +3,8 @@
 # Contributor: Miklos Vajna <vmiklos@frugalware.org>
 
 pkgname=kbd
-pkgver=1.15.3
-pkgrel=1
+pkgver=1.15.5
+pkgrel=2
 pkgdesc="Keyboard maps and console fonts"
 url="ftp://ftp.altlinux.org/pub/people/legion/kbd/"
 _F_archive_grepv="wip\|rc"
@@ -12,18 +12,11 @@ up2date="Flasttar $url"
 depends=('sed>=4.1.5-3' 'bash')
 groups=('base')
 archs=('i686' 'x86_64' 'arm')
-backup=(etc/sysconfig/font)
-source=($url/$pkgname-$pkgver.tar.gz font)
-sha1sums=('1da0c02cb802d2e68b34b1ba68839929b4255cde' \
-          '7e2d97eeef740c7618d25a70e84b0b55fa6c1a09')
+source=($url/$pkgname-$pkgver.tar.gz \
+	'7e06e56157e8431d02e1377cdc44230944203d88.patch')
+sha1sums=('f5e29dcf55e1fb37864fb1a125e90b357e438fba' \
+	'ab8f28867703abd3cc806494186fc22df83ba0d7')
 
-build()
-{
-	Fcd
-	rm po/es.po || return 1 # would cause a build error
-	Fbuild --enable-optional-progs
-	# config
-	Ffile /etc/sysconfig/font
-}
+Fconfopts='--enable-optional-progs'
 
 # optimization OK

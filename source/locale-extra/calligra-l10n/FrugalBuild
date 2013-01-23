@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=calligra-l10n
-pkgver=2.5.0
+pkgver=2.5.4
 pkgrel=1
 pkgdesc="Dummy package."
 url="http://www.calligra-suite.org"
@@ -13,37 +13,36 @@ makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_
 groups=('locale-extra')
 archs=('i686' 'x86_64')
 up2date="lynx -dump ftp://ftp.kde.org/pub/kde/stable/calligra-latest | grep 'tar' | sed -n 's/.*calligra-\(.*\).tar.bz2.*/\1/;1p'"
-clangs=('ca' 'ca@valencia' 'da' 'de' 'el' 'en_GB' 'es' 'et' 'fi' 'fr' 'gl' 'hu' 'it' 'ja' 'kk' 'nb' 'nds' 'nl' 'pl' 'pt' 'pt_BR' 'ru' 'sk' 'sv' 'uk' 'zh_CN' 'zh_TW')
-cdescs=('Catalan' 'Catalan (Valencian)' 'Danish' 'German' 'Greek' 'English (UK)' 'Spanish' 'Estonian' 'Finnish' 'French' 'Galician' 'Hungarian' 'Italian' 'Japanese' 'Kazakh' 'Norwegian (Bokmaal)' 'Low Saxon' 'Dutch' 'Polish' 'Portuguese' 'Brazil portuguese' 'Russian' 'Slovak' 'Swedish' 'Ukrainan' 'Simplified Chinese' 'Chinese Traditional')
+clangs=('ca' 'da' 'de' 'el' 'en_GB' 'es' 'et' 'fi' 'fr' 'gl' 'hu' 'it' 'ja' 'kk' 'nb' 'nds' 'nl' 'pl' 'pt' 'pt_BR' 'ru' 'sk' 'sv' 'uk' 'zh_CN' 'zh_TW')
+cdescs=('Catalan' 'Danish' 'German' 'Greek' 'English (UK)' 'Spanish' 'Estonian' 'Finnish' 'French' 'Galician' 'Hungarian' 'Italian' 'Japanese' 'Kazakh' 'Norwegian (Bokmaal)' 'Low Saxon' 'Dutch' 'Polish' 'Portuguese' 'Brazil portuguese' 'Russian' 'Slovak' 'Swedish' 'Ukrainan' 'Simplified Chinese' 'Chinese Traditional')
 ## source()
 source=()
-sha1sums=('ba5a3c690440dd7bc4edc8d34a594d096b3d244f' \
-          '573b99b035da444c3e36a354e68d613de083c23d' \
-          '2d4b7adbe1073429875775209ddf40fdea67d291' \
-          '8e94b29a37e286c5162bc4e95c96a0cfbc8047fe' \
-          'abe47f4958bf9ceb707fe9b23f8b9a6ce59d6e07' \
-          '17a0d0173709ca2e0bbedb23befcefb9dd49e909' \
-          'd9429ba76c67a98013aeb5c056eb0d941d2953da' \
-          '0832f966c444607fea7a8e4dab075e7339dd0cec' \
-          '9ac118f0db602c12da0379212e78b888e5d983d8' \
-          '8014b4d06c736e64f7bdefd5747aedce8619858b' \
-          'd7a91e25da88a5720b1825f075102103cb99f628' \
-          '43ee85bfeb7d89169ebd2546aeeb4d79687dc421' \
-          'b420adeed23eedfe9ccac326053e89c2b8a49f05' \
-          '71742bd778e83a747e6eae5f3c498eb978e01d30' \
-          '532f6cfab1f2394ced6cf03a35db31e0d9c561bf' \
-          'd329be01cc211d0145aeaa7b8df2942cf38ed0ce' \
-          '08ee3ce2ce3d21a490caad40d9d8bdb5820494ae' \
-          'ca2256bc1b7ef2c98052314ce84cb79aec2d0f45' \
-          '154744e493ca2b5803cfe15f5c9df14805f81049' \
-          '2e57596722015e62ad2e0b29414725fc0d5bfb77' \
-          'bc153b649bb55576c99a53d48db83b29f53b3b83' \
-          '5ca609b50b3a89e8229af6f3c246d4b2e1886ad7' \
-          '9f0bbdb6bd1e832f700f5dae95dcf18483667ab5' \
-          'd533475d9f41bf1dd5d345b836f94fcaf55cef0c' \
-          '03ee94ec4d74f6dda03d424185b594af6375a417' \
-          '900c7f00af6e2841b945d77ce553a0363140556b' \
-          'cf4760fd3b481fbe4c611766e3f9a3edb6108d3a')
+sha1sums=('522b356bfcfa4d6c2346e912e5260be6db54ad44' \
+          '8a398c6f3add7477a39bce183353d28d78c3e336' \
+          '6228b12cb38ce4e3e1edc5e0a2680703eb11a02d' \
+          'bee0067ca5882bd2132c30e8984910ee3af817f7' \
+          'd3e5e9ba6467124a5c52c9e693af76db6911d086' \
+          '71e46686b033a676dc35b3bcf0911f2f53ccab93' \
+          '163a748beec5f1f0a683f68f8ec7f86e520ee3cb' \
+          'c1f2a887e12a93a1b75bea1db1ff227cff0ff439' \
+          'fcf8d68532b42aeacc6e67c3b4071175517118ee' \
+          'b2172a2a716a04919a058b8a438e86c99eb93427' \
+          '4ad28ec672ecfbf47ea4ce348a6f2b1f21864450' \
+          '2a70cd3a43603ba63483514dde369e0e8e0b10c0' \
+          'b54e0a3805ed6215190877843cf437b6d8bc6ce5' \
+          'b5877e7d88a741fdaaa9ae29c3bf719f17c74cbf' \
+          'ac3e57b0d34f2a2c06eea5e9118d89acefe47951' \
+          'ec9ba1d746dd5fcfc8998cf8e7f61600d1e53831' \
+          'c080f9605d54def164f6b220bd830395b40705d6' \
+          '910f58a18f1e9cd2d2ff16631fb2a1305070279f' \
+          '5d41981b91a01fe8214ba13ba3b2cb393686a8ce' \
+          '5da67979e45ef852d8ffa99008b643fc03378b45' \
+          '757fe84f5ad57d0d91a9d4012e0d2fd59ddf1df2' \
+          'b7991bb5a7b2633f6f1ba7db5c99ccbb9a489266' \
+          'f931a434f011bcec281c88f84569b94db7e7e660' \
+          'bf54b181c1ca42a4f2d32fceb4aeec3947d691bd' \
+          '41a0fa29b524006b1f0bd286f10428506c546d52' \
+          '7bcb34622f452f5b31121046cfe3b5bf2784e232')
 i=0
 while [ $i -lt ${#clangs[@]} ]
 do

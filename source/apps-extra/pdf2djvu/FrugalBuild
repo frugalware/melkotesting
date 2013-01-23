@@ -2,15 +2,15 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=pdf2djvu
-pkgver=0.7.13
+pkgver=0.7.16
 pkgrel=1
 pkgdesc="Creates DjVu files from PDF files."
-depends=('djvulibre' 'poppler>=0.18.4' 'libgomp' 'bzip2')
+depends=('djvulibre' 'poppler>=0.20.3' 'libgomp' 'bzip2')
 groups=('apps-extra')
 archs=('i686' 'x86_64')
 _F_googlecode_sep="_"
 Finclude googlecode
 _F_cd_path="$pkgname-$pkgver"
-sha1sums=('382ed8a129614d3cbb89af01ad1408d4a36d2459')
+sha1sums=('d60fe1a6c5d614c259bb39972e1cdba1678b07a5')
 
 # optimization OK

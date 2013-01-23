@@ -1,13 +1,12 @@
-# Compiling Time: 0.1 SBU
+# Compiling Time: 0.02 SBU
 # Maintainer: CSÉCSY László <boobaa@frugalware.org>
 # Contributor: Christian Hamar alias krix <krics@linuxforum.hu>
 
 _F_perl_name=IO-Compress
 _F_perl_author=P/PM/PMQS
-pkgver=2.052
+pkgver=2.060
 pkgrel=1
 pkgdesc="Interface to a bunch of compression libraries"
 Finclude perl
 archs=('i686' 'x86_64')
-sha1sums=('78c59ae073a957e96c9d631feb0b9e3b080e2e67')
-# optimization OK
+sha1sums=('d74d735ab9c918961ce1da481c17c3513dd46623')

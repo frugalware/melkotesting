@@ -1,16 +1,17 @@
 # Compiling Time: 0 SBU
-# Maintainer: Cedrick Hannier alias Cedynamix <cedynamix@gmail.com>
+# Maintainer: kikadf <kikadf.01@gmail.com>
+# Contributor: Cedrick Hannier alias Cedynamix <cedynamix@gmail.com>
 
 pkgname=jampa-gtk
 pkgver=0.3.1
 extraver=linux-gtk-x86
-pkgrel=1
+pkgrel=2
 pkgdesc="A java front-end for mplayer."
 archs=('i686' 'x86_64')
 groups=('multimedia-extra')
 _F_sourceforge_dirname="jampa"
 _F_sourceforge_name="jampa-$extraver"
-depends=('j2re' 'mplayer' 'libxrender' 'fontconfig' 'zlib')
+depends=('openjre' 'mplayer' 'libxrender' 'fontconfig' 'zlib')
 _F_cd_path="$_F_sourceforge_dirname-$pkgver"
 _F_desktop_exec="/usr/bin/jampa"
 #_F_sourceforge_mirror="dfn"

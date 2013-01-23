@@ -1,0 +1,15 @@
+# Compiling Time: 0.02 SBU
+# Maintainer: Slown <slown@frugalware.org>
+
+pkgname=pymongo
+pkgver=2.4.1
+pkgrel=1
+pkgdesc="Python driver for MongoDB"
+depends=('python')
+makedepends=('python-distribute')
+groups=('devel-extra')
+archs=('i686' 'x86_64')
+Finclude pypi
+sha1sums=('64c448a779edf78f91b715514e42e31c1fc25135')
+
+# optimization OK

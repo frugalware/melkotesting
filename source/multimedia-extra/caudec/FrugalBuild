@@ -2,7 +2,7 @@
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=caudec
-pkgver=1.5.1
+pkgver=1.5.3
 pkgrel=1
 pkgdesc="A multi-process command-line audio transcoder"
 depends=('procps' 'grep' 'bc' 'which' 'coreutils' 'shntool' 'sed' 'findutils')
@@ -10,11 +10,11 @@ backup=('etc/caudecrc')
 groups=('multimedia-extra')
 archs=('i686' 'x86_64')
 Finclude googlecode
-sha1sums=('b4e25f39de8ac07e53e63e615730507b9c339785')
+sha1sums=('2bb164683a8db12f4ff5612dffc8cb41603ccc02')
 
 build() {
 	Fcd
 	Fexerel /usr/bin/$pkgname
 	Fln /usr/bin/$pkgname /usr/bin/decaude
-	Ffilerel /etc/$pkgname/caudecrc
+	Ffilerel caudecrc /etc/$pkgname/caudecrc
 }

@@ -2,8 +2,8 @@
 # Maintainer: Miklos Vajna <vmiklos@frugalware.org>
 
 pkgname=icedtea-web
-pkgver=1.2
-pkgrel=2
+pkgver=1.3.1
+pkgrel=1
 pkgdesc="Provides a Free Software web browser plugin running applets written in Java."
 url="http://icedtea.classpath.org/wiki/IcedTea-Web"
 depends=('openjre' 'gtk+2')
@@ -13,10 +13,11 @@ groups=('xapps')
 archs=('i686' 'x86_64')
 up2date="Flasttar http://icedtea.classpath.org/download/source/"
 source=(http://icedtea.classpath.org/download/source/icedtea-web-$pkgver.tar.gz)
-sha1sums=('4b7e38b13101ac1f18dc276f17be37a0ed2b28df')
+sha1sums=('b6e68c2a8e7989669de421a95a15abbc97ed62b6')
 
 build()
 {
+	Fmkdir /usr/lib/jvm/java-7-openjdk/jre/share/icedtea-web
 	Fbuild --with-jdk-home=$OPENJDKDIR \
 	       --prefix=$OPENJREDIR
 

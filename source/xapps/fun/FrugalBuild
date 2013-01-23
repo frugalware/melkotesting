@@ -3,11 +3,11 @@
 
 pkgname=fun
 pkgver=0.3.3
-pkgrel=4
+pkgrel=6
 pkgdesc="Frugalware Update Notifier (FUN)"
 url="http://ftp.frugalware.org/pub/other/fun"
 rodepends=('gfpm>=1.2.1')
-depends=('glib2' 'gtk+2>=2.20.1' 'libglade' 'frugalwareutils>=1.0.0-2' 'dbus' \
+depends=('glib2' 'gtk+2>=2.20.1' 'libglade' 'frugalwareutils>=1.0.0-8' 'dbus' \
 	'dbus-glib>=0.80' 'libnotify' 'libnxml' 'openssl>=1.0.0')
 makedepends=('pkgconfig' 'intltool')
 groups=('xapps')
@@ -17,16 +17,14 @@ _F_gnome_iconcache="y"
 _F_gnome_scriptlet="$pkgname.install"
 Finclude gnome-scriptlet
 up2date="lynx -dump $url | Flasttar"
-source=($url/$pkgname-$pkgver.tar.gz rc.fun fun.service)
+source=($url/$pkgname-$pkgver.tar.gz fun.service)
 sha1sums=('aaab153c453a5504f76cdc4e5dc808d80cacf2e5' \
-          'b9b174e0b69f89a4f1ed1c53244a1ef3f1d7727b' \
           '4570162ee41a854bea8a7a5d72a64084d6b2668b')
 
 build()
 {
 	Fbuild
 	Fbuild_gnome_scriptlet
-	Frcd2
 	Ffile /lib/systemd/system/fun.service
 }
 

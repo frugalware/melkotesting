@@ -1,5 +1,6 @@
 # Compiling Time: 0 SBU
-# Maintainer: Kooda <kooda@upyum.com>
+# Maintainer: Pingax <pingax@frugalware.fr>
+# Contributor: Kooda <kooda@upyum.com>
 
 pkgname=xavante
 pkgver=2.2.1
@@ -12,7 +13,7 @@ archs=('i686' 'x86_64')
 up2date="Flasttar http://github.com/keplerproject/$pkgname/downloads"
 source=("http://github.com/downloads/keplerproject/$pkgname/$pkgname-$pkgver.tar.gz")
 sha1sums=('9b75b3750bc058eb8af115d081d56d76c67fa4dc')
-Fconfopts="$Fconfopts lua"
+Fconfopts+=" lua"
 
 build()
 {

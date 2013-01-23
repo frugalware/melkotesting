@@ -3,7 +3,7 @@
 
 pkgname=gift
 pkgver=0.11.8.1
-pkgrel=2
+pkgrel=3
 pkgdesc="A bridge between P2P protocols and the front-ends"
 depends=('libogg' 'libvorbis' 'perl' 'libtool')
 rodepends=('gift-gnutella')
@@ -12,6 +12,6 @@ archs=('i686' 'x86_64')
 Finclude sourceforge
 url="http://gift.sourceforge.net"
 sha1sums=('3f7799c018b1df203b843abd7954a6322bcfa638')
-Fconfopts="$Fconfopts --enable-perl"
+Fconfopts+=" --enable-perl"
 
 # optimization OK

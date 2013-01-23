@@ -3,22 +3,21 @@
 
 pkgname=libopenraw
 pkgver=0.0.9
-pkgrel=2
+pkgrel=3
 pkgdesc="http://libopenraw.freedesktop.org/wiki/"
 url="http://libopenraw.freedesktop.org/wiki/"
-depends=('gtk+2>=2.20.0-2' 'curl' 'exempi' 'libxml2>=2.7.8' 'libboost>=1.49.0')
-makedepends=('boost')
+depends=('gtk+2>=2.20.0-2')
+makedepends=('boost>=1.50.0' 'libboost>=1.50.0' 'curl')
 groups=('xlib-extra')
 archs=('i686' 'x86_64')
 up2date="Flasttar $url"
 source=(http://libopenraw.freedesktop.org/download/$pkgname-$pkgver.tar.bz2)
 signatures=(${source[0]}.asc)
 options=('scriptlet')
-Fconfopts="$Fconfopts --enable-gnome"
+Fconfopts+=" --enable-gnome"
 
 subpkgs=("${subpkgs[@]}" "$pkgname-gnome")
 subdescs=("${subdescs[@]}" "gnome tools $pkgname")
-subdepends=("${subdepends[@]}" 'gtk+2')
 subrodepends=("${subrodepends[@]}" "$pkgname")
 subgroups=("${subgroups[@]}" 'gnome-extra')
 subarchs=("${subarchs[@]}" 'i686 x86_64')

@@ -1,15 +1,17 @@
-# Compiling Time: 0.05 SBU
+# Compiling Time: 0.08 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=knotter
-pkgver=0.5.0
+pkgver=0.6.0
 pkgrel=1
 pkgdesc="An enditor for celtic knots with SVG export capabilities"
 depends=('libqtwebkit')
 groups=('xapps-extra')
 archs=('i686' 'x86_64')
 Finclude sourceforge
-sha1sums=('92e6a5de5858916876504527fe41a0a085b395c0')
+source=($source configure.sh.patch)
+sha1sums=('3e3327c850b74fb1e52da0f295cbcdf264ce3c52' \
+          'c28fee8b0da95d8e582778ccfd5f804fcb728ab6')
 
 _F_desktop_name="Knotter"
 _F_desktop_icon="/usr/share/pixmaps/knotter.png"
@@ -17,10 +19,10 @@ _F_desktop_categories="Graphics;"
 
 build() {
 	Fcd
-	qmake Knotter.pro || Fdie
-	make clean || Fdie
+	Fpatchall
+	./configure.sh --prefix="$Fdestdir/usr" || Fdie
 	Fmake
-	make INSTALL_ROOT="$Fdestdir" install_target || Fdie
+	Fmakeinstall
 	mv img/icon.png img/$pkgname.png
 	Ficonrel img/$pkgname.png
 	Fdesktop2

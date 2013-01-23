@@ -3,7 +3,7 @@
 
 pkgname=python-requests
 _F_archive_name="requests"
-pkgver=0.13.8
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="Python HTTP for Humans."
 depends=('python')
@@ -15,4 +15,4 @@ groups=('lib-extra')
 archs=('i686' 'x86_64')
 _F_pypi_name="requests"
 Finclude pypi
-sha1sums=('1606649c813822c652b1e67a9c4b203faa5e9132')
+sha1sums=('6be26ff3583587e5cc3e2c170a9d78678dbbbf45')

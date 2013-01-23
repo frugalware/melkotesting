@@ -43,6 +43,8 @@
 # * _F_gnome_mime - set to "y" if your package provides a mime type
 # * _F_gnome_iconcache - set to "y" if your package provides an icon in
 # /usr/share/icons/hicolor
+# * _F_gnome_gio - set to "y" for update gio modules into /usr/lib/gio/modules
+# * _F_gnome_immodules -set to "y" for update gtk.immodules
 # * _F_gnome_scriptlet - name of the generated install script (defaults to
 # src/gnome-scriptlet.install)
 ###
@@ -51,16 +53,16 @@ if [ -z "$_F_gnome_scriptlet" ]; then
 fi
 
 if [ -n "$_F_gnome_schemas" ]; then
-	Fconfopts="$Fconfopts --disable-schemas-install"
+	Fconfopts+=" --disable-schemas-install"
 fi
 if [ -n "$_F_gnome_scrollkeeper" ]; then
-	Fconfopts="$Fconfopts --disable-scrollkeeper"
+	Fconfopts+=" --disable-scrollkeeper"
 fi
 if [ -n "$_F_gnome_desktop" ]; then
-	Fconfopts="$Fconfopts --enable-desktop-update=no"
+	Fconfopts+=" --enable-desktop-update=no"
 fi
 if [ -n "$_F_gnome_mime" ]; then
-	Fconfopts="$Fconfopts --disable-update-mimedb --enable-mime-update=no"
+	Fconfopts+=" --disable-update-mimedb --enable-mime-update=no"
 fi
 if [ "$_F_gnome_doc" = "y" ]; then
 	makedepends=(${makedepends[@]} 'gtk-doc')
@@ -154,6 +156,8 @@ Fbuild_gnome_scriptlet()
 	Fsed '$_F_gnome_scrollkeeper' "$_F_gnome_scrollkeeper" ${Fsrcdir%/src}/$_F_gnome_scriptlet
 	Fsed '$_F_gnome_mime' "$_F_gnome_mime" ${Fsrcdir%/src}/$_F_gnome_scriptlet
 	Fsed '$_F_gnome_iconcache' "$_F_gnome_iconcache" ${Fsrcdir%/src}/$_F_gnome_scriptlet
+	Fsed '$_F_gnome_gio' "$_F_gnome_gio" ${Fsrcdir%/src}/$_F_gnome_scriptlet
+	Fsed '$_F_gnome_immodules' "$_F_gnome_immodules" ${Fsrcdir%/src}/$_F_gnome_scriptlet
 }
 
 ###
@@ -175,4 +179,3 @@ build()
 	fi
 	Fbuild_gnome_scriptlet
 }
-

@@ -1,0 +1,15 @@
+# Compiling Time: 0.46 SBU
+# Maintainer: Slown <slown@frugalware.org>
+
+pkgname=pysam
+pkgver=0.7.1
+pkgrel=1
+pkgdesc="Python interface for the SAM/BAM sequence alignment and mapping format"
+depends=('pyrex' 'zlib')
+makedepends=('python-distribute' 'cython')
+groups=('lib-extra')
+archs=('i686' 'x86_64')
+Finclude googlecode
+sha1sums=('41ebc5f6f50c7700cc2d4ea9196acc4b9383f089')
+
+# optimization OK

@@ -2,7 +2,7 @@
 # Maintainer: Baste <baste@frugalware.org>
 
 pkgname=gpaste
-pkgver=2.8.1
+pkgver=2.9.1
 pkgrel=1
 pkgdesc="Is a clipboard management daemon with DBus interface."
 url="https://github.com/Keruspe/GPaste"
@@ -17,8 +17,8 @@ _F_github_ext=".tar.xz"
 
 Finclude gnome-scriptlet github
 source=(http://github.com/downloads/$_F_github_author/$_F_github_name/$pkgname-$pkgver$_F_github_ext)
-Fconfopts="$Fconfopts --enable-applet"
-sha1sums=('6467da15018d22fb837c93cf43d9b8edfbac83a7')
+Fconfopts+=" --enable-applet"
+sha1sums=('77a5acb31852242cb8472f76ae4a2b9cc686a490')
 
 subpkgs=('gnome-shell-extension-gpaste')
 subdescs=('Is a clipboard management tool which comes with a tray applet as well as a GNOME Shell extension.')

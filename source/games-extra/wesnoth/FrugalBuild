@@ -3,21 +3,21 @@
 # Contributor: Christian Hamar alias krix <krics@linuxforum.hu>
 
 pkgname=wesnoth
-pkgver=1.10.3
+pkgver=1.11.1
 pkgrel=1
 pkgdesc="Wesnoth is a turn based strategy game played in the fantasy world"
 depends=('sdl>=1.2.13-2' 'sdlimage>=1.2.6-2' 'sdl_net>=1.2.7' 'sdl_mixer>=1.2.8' 'libpng' 'libjpeg' 'libogg' \
-	'vorbis-tools' 'freetype2' 'python-tools>=2.6' 'fribidi' 'libboost>=1.49.0' 'sdl_ttf>=2.0.9' 'pango>=1.24.2-2' 'cairo>=1.8.6-3')
-makedepends=('boost')
+	'vorbis-tools' 'freetype2' 'python-tools>=2.6' 'fribidi' 'libboost>=1.50.0' 'sdl_ttf>=2.0.9' 'pango>=1.24.2-2' 'cairo>=1.8.6-3')
+makedepends=('boost>=1.50.0')
 Finclude cmake
 groups=('games-extra')
 archs=('i686' 'x86_64')
 _F_sourceforge_ext=".tar.bz2"
 Finclude sourceforge
 url="http://www.wesnoth.org/"
-Fconfopts="$Fconfopts --enable-server --enable-editor --enable-tools \
+Fconfopts+=" --enable-server --enable-editor --enable-tools \
 		--enable-campaign-server --with-fifodir=/var/run/wesnoth \
 		--disable-strict-compilation"
-sha1sums=('a8992ed64617a8d569ea1557b7f2b6d25bdb805b')
+sha1sums=('a25152f4fa92c3feb11b2fb514b70aaabde31f4f')
 
 # optimization OK

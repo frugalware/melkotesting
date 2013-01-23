@@ -43,6 +43,29 @@ UpdateIconCache()
 		fi
 	fi
 }
+
+UpdateGtkImmodules()
+{
+	if [ -f /usr/bin/gtk-query-immodules-2.0 ]
+	then
+		echo -n "updating gtk+2 immodules .."
+               	if /usr/bin/gtk-query-immodules-2.0 > /etc/gtk-2.0/gtk.immodules 2>&1 ; then
+                       	echo " done."
+               	else
+                       	echo " failed."
+               	fi
+	fi
+	if [ -f /usr/bin/gtk-query-immodules-3.0 ]
+	then
+		echo -n "updating gtk+3 immodules .."
+		if /usr/bin/gtk-query-immodules-3.0 --update-cache > /dev/null 2>&1 ; then
+			echo " done."
+                else
+                        echo " failed."
+                fi
+        fi
+}
+
 post_install()
 {
 	if [ ${#schemas[*]} -gt 0 ]; then
@@ -68,7 +91,7 @@ post_install()
 	fi
 	if [ -n "$_F_gnome_glib" ]; then
 		echo -n "loading schema glib entries... "
-		glib-compile-schemas /usr/share/glib-2.0/schemas
+		glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
 		echo "done."
 	fi
 	if [ -n "$_F_gnome_desktop" ]; then
@@ -93,7 +116,18 @@ post_install()
 	if [ -n "$_F_gnome_iconcache" ]; then
 		UpdateIconCache
 	fi
-}
+	if [ -n "$_F_gnome_gio" ]; then
+		echo -n "updating gio modules database..."
+		if /usr/bin/gio-querymodules /usr/lib/gio/modules > /dev/null 2>&1 ; then
+			echo " done."
+		else
+			echo " failed."
+		fi
+	fi
+	if [ -n "$_F_gnome_immodules" ]; then
+		UpdateGtkImmodules
+	fi
+}		
 
 post_upgrade()
 {
@@ -103,7 +137,7 @@ post_upgrade()
 pre_remove() {
 	if [ -n "$_F_gnome_glib" ]; then
 		echo -n "loading schema glib entries... "
-		glib-compile-schemas /usr/share/glib-2.0/schemas
+		glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
 		echo "done."
 	fi
 	if [ ${#schemas[*]} -gt 0 ]; then
@@ -153,7 +187,12 @@ post_remove()
 	if [ -n "$_F_gnome_iconcache" ]; then
 		UpdateIconCache
 	fi
+
+	if [ -n "$_F_gnome_immodules" ]; then
+		UpdateGtkImmodules
+	fi
 }
+
 
 op=$1
 shift

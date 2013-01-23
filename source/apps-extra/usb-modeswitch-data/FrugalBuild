@@ -1,16 +1,14 @@
-# Compiling Time: 0.01 SBU
+# Compiling Time: 0 SBU
 # Maintainer: CSÉCSY László <boobaa@frugalware.org>
 
 pkgname=usb-modeswitch-data
-pkgver=20120531
+pkgver=20121109
 pkgrel=1
 pkgdesc="A mode switching tool for controlling 'flip flop' (multiple device) USB gear - data"
 url="http://www.draisberghof.de/usb_modeswitch/"
 up2date="lynx -dump $url | grep http.*$pkgname | sed 's/.*data-\(.*\)\.tar.*/\1/'"
 source=($url/$pkgname-$pkgver.tar.bz2)
-depends=('udev')
+depends=('systemd>=189-4')
 groups=('apps-extra')
 archs=('i686' 'x86_64')
-sha1sums=('0cd0d4220e372f879538ce696bca7f053731bbb2')
-
-# optimization OK
+sha1sums=('28f0a973b0931b31a47b87c963e96f436385455c')

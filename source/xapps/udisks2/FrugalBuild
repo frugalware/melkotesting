@@ -4,19 +4,20 @@
 
 pkgname=udisks2
 _F_archive_name=udisks
-pkgver=1.98.0
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="Storage Management Service"
 url="http://www.freedesktop.org/wiki/Software/udisks"
-depends=('dbus-glib' 'udev' 'polkit' 'parted>=3.0' 'lvm2' \
-	'libatasmart' 'sg3-utils' 'libgudev' 'e2fsprogs' 'dosfstools' 'mtools')
-makedepends=('intltool' 'systemd' 'gobject-introspection' 'gtk-doc')
-Fconfopts="$Fconfopts --enable-gtk-doc --enable-lvm2"
+depends=('dbus-glib' 'polkit' 'parted>=3.1-2' 'lvm2>=2.02.96' \
+	'libatasmart>=0.19' 'sg3-utils' 'e2fsprogs' 'dosfstools' 'mtools'\
+	'systemd>=188')
+makedepends=('intltool' 'gobject-introspection' 'gtk-doc')
+Fconfopts+=" --enable-gtk-doc --enable-lvm2"
 groups=('xapps')
 archs=('i686' 'x86_64' 'ppc')
 up2date="Flasttar http://udisks.freedesktop.org/releases/"
 source=(http://udisks.freedesktop.org/releases/$_F_archive_name-$pkgver.tar.bz2)
-sha1sums=('c1f664609c036d9c53a2a1e8f71ea0aac6763aab')
+sha1sums=('8745466a551c1bf3a5acaef0f5a00922d2620228')
 options=('scriptlet')
 
 # optimization OK

@@ -6,8 +6,8 @@ USE_DETECTDEPENDS=${USE_DETECTDEPENDS:-"n"}
 
 pkgname=qt4
 _F_archive_name=qt-everywhere-opensource-src
-pkgver=4.8.2
-pkgrel=2
+pkgver=4.8.4
+pkgrel=1
 pkgdesc="The QT4 GUI toolkit."
 url="http://qt.nokia.com/products/"
 depends=()
@@ -21,15 +21,9 @@ options=('scriptlet' 'nodocs')
 _F_archive_grepv="-tp"
 up2date="Flasttar http://origin.releases.qt-project.org/qt4/source/"
 source=(http://origin.releases.qt-project.org/qt4/source/$_F_archive_name-$pkgver.tar.gz \
-	frugalware.patch \
-	fix-config.tests.patch \
-	no-werror.patch \
-	qt-everywhere-opensource-src-4.8.0-qtwebkit-glib231.patch)
-sha1sums=('e1e2edef1d63ed677d6534d32800c2e1f7ad0e73' \
-          '39b67a38c74acc9bba9940cbb39af73fef030edb' \
-          'e2522839807839f1af77de7ccd4c9e8c7df4acd0' \
-          'd39a3bfad54e5f73d8fc343366141ed41c42716a' \
-          'fcbde351e76daab62c6efdde81709d79809fd417')
+	frugalware.patch)
+sha1sums=('f5880f11c139d7d8d01ecb8d874535f7d9553198' \
+          '39b67a38c74acc9bba9940cbb39af73fef030edb')
 
 export LD_LIBRARY_PATH=$Fsrcdir/$_F_archive_name-$pkgver/lib:${LD_LIBRARY_PATH}
 export YACC='yacc -d'
@@ -105,7 +99,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 
-Fconfopts="$Fconfopts -dbus"
+Fconfopts+=" -dbus"
 subpkgs=("${subpkgs[@]}" "libqtdbus")
 subdescs=("${subdescs[@]}" 'Qt4 DBus Library')
 subdepends=("${subdepends[@]}" "dbus>=0.93")
@@ -342,7 +336,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 
-Fconfopts="$Fconfopts -plugin-sql-mysql"
+Fconfopts+=" -plugin-sql-mysql"
 subpkgs=("${subpkgs[@]}" "$pkgname-plugin-mysql")
 subdescs=("${subdescs[@]}" 'Qt4 MySql plugin')
 subdepends=("${subdepends[@]}" "libmysqlclient>=5.5.10")
@@ -354,7 +348,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 
-Fconfopts="$Fconfopts -plugin-sql-odbc"
+Fconfopts+=" -plugin-sql-odbc"
 subpkgs=("${subpkgs[@]}" "$pkgname-plugin-odbc")
 subdescs=("${subdescs[@]}" 'Qt4 ODBC plugin')
 subdepends=("${subdepends[@]}" "unixodbc>=2.3.1")
@@ -386,7 +380,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 
-Fconfopts="$Fconfopts -plugin-sql-sqlite2 -system-sqlite"
+Fconfopts+=" -plugin-sql-sqlite2 -system-sqlite"
 subpkgs=("${subpkgs[@]}" "$pkgname-plugin-sqlite2")
 subdescs=("${subdescs[@]}" 'Qt4 SQlite2 plugin')
 subdepends=("${subdepends[@]}" "sqlite2")
@@ -397,7 +391,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 
-Fconfopts="$Fconfopts -plugin-sql-sqlite -system-sqlite"
+Fconfopts+=" -plugin-sql-sqlite -system-sqlite"
 subpkgs=("${subpkgs[@]}" "$pkgname-plugin-sqlite3")
 subdescs=("${subdescs[@]}" 'Qt4 SQlite3 plugin')
 subdepends=("${subdepends[@]}" "sqlite3")
@@ -408,7 +402,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 
-Fconfopts="$Fconfopts -plugin-sql-tds"
+Fconfopts+=" -plugin-sql-tds"
 subpkgs=("${subpkgs[@]}" "$pkgname-plugin-tds")
 subdescs=("${subdescs[@]}" 'Qt4 TDS plugin')
 subdepends=("${subdepends[@]}" "freetds")
@@ -422,7 +416,7 @@ subprovides=("${subprovides[@]}" '')
 # Optionnal packages
 
 if Fuse $USE_DEMOS; then
-Fconfopts="$Fconfopts -demosdir /usr/share/doc/$pkgname/demos -examplesdir /usr/share/doc/$pkgname/examples"
+Fconfopts+=" -demosdir /usr/share/doc/$pkgname/demos -examplesdir /usr/share/doc/$pkgname/examples"
 subpkgs=("${subpkgs[@]}" "$pkgname-demos")
 subdescs=("${subdescs[@]}" 'Qt4 Demo and Example Programs.')
 subdepends=("${subdepends[@]}" "libxdamage")
@@ -433,7 +427,7 @@ subconflicts=("${subconflicts[@]}" '')
 subreplaces=("${subreplaces[@]}" '')
 subprovides=("${subprovides[@]}" '')
 else
-Fconfopts="$Fconfopts -nomake demos -nomake examples"
+Fconfopts+=" -nomake demos -nomake examples"
 fi
 
 ## this is here till I've fixed all reverse depends so we not break all apps using qt4 by now
@@ -511,7 +505,7 @@ build()
 
 	Fcd
 	Fpatchall
-
+	
 	## REALLY DO NOT REMOVE THESE NOR THE frugalware.patch _WE_ DO WANT TO BUILD WITH
 	## fw LD/C/CXX FLAGS and fw PATHS right ? we do not have /usr/X11R.. NOR DO WE
 	## WANT *MULTILIB* STUFF!!
@@ -541,7 +535,6 @@ build()
 		-system-libpng -system-libjpeg -system-libmng -system-libtiff -system-zlib \
 		-cups -glib -gtkstyle -nis -pch -stl -sm -no-openvg || Fdie
 
-	## NOTE: We build with phonon but remove it after .. WebKit need it ?!
 
 	make  || Fdie
 	if [ "$NOCCACHE" = "0" -a -d /usr/lib/ccache/bin ]; then

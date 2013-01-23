@@ -1,24 +1,22 @@
-# Compiling Time: 4.73 SBU
+# Compiling Time: 4.22 SBU
 # Maintainer: kikadf <kikadf.01@gmail.com>
 # Contributor: Devil505 <devil505linux@gmail.com>
 # Contributor: crazy <crazy@frugalware.org>
 
 pkgname=libtorrent-rasterbar
-pkgver=0.16.2
-pkgrel=3
+pkgver=0.16.6
+pkgrel=2
 pkgdesc="LibTorrent Rasterbar is a BitTorrent library written in C++"
 _F_googlecode_dirname="libtorrent"
 Finclude googlecode python
 url="http://www.rasterbar.com/products/libtorrent/index.html"
-depends=('libboost>=1.49.0' 'openssl>=1.0.1' 'geoip')
-makedepends=('boost')
+depends=('libboost>=1.50.0' 'openssl>=1.0.1' 'geoip')
+makedepends=('boost>=1.50.0')
 groups=('lib-extra')
 archs=('i686' 'x86_64')
-Fconfopts="$Fconfopts --with-libgeoip=system --enable-python-binding \
+Fconfopts+=" --with-libgeoip=system --enable-python-binding \
            --enable-statistics --enable-disk-stats --enable-examples"
-source=($source fix_disk-stats_build.patch)
-sha1sums=('04da641d21d0867fc103f4f57ffd41b3fce19ead' \
-          'db2bb8e4be381d37aa4e97bf906ddb13b240b699')
+sha1sums=('baf95f53be99a90c4bb1488a72e9d625684bbbd2')
 
 subpkgs=("libtorrent-rasterbar-python")
 subdescs=('libtorrent-rasterbar python bindings')
@@ -31,6 +29,7 @@ build()
 {
 	export CFLAGS="$CFLAGS -DBOOST_FILESYSTEM_VERSION=2"
 	export CXXFLAGS="$CXXFLAGS -DBOOST_FILESYSTEM_VERSION=2"
+	Fsed '<string>' '<cstring>' tools/parse_hash_fails.cpp
 	Fbuild
 	Fsplit libtorrent-rasterbar-python $_F_python_libdir
 }

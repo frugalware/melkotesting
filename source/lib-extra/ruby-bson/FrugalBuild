@@ -1,8 +1,8 @@
-# Compiling Time: 0.04 SBU
+# Compiling Time: 0.03 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=ruby-bson
-pkgver=1.6.4
+pkgver=1.8.2
 pkgrel=1
 pkgdesc="Ruby implementation of BSON"
 url="http://www.mongodb.org"
@@ -10,4 +10,4 @@ groups=('lib-extra')
 archs=('i686' 'x86_64')
 _F_gem_name=${pkgname/ruby-/}
 Finclude gem
-sha1sums=('608def3479ce81518a3767edae071739a5d8e018')
+sha1sums=('b175e93d9450cea3388b6195adb45023b759efd3')

@@ -1,4 +1,4 @@
-# Compiling Time: 25.82 SBU
+# Compiling Time: 25.83 SBU
 # Maintainer: centuri0 <achevaux at gmail dot com>
 
 USE_DETECTDEPENDS=${USE_DETECTDEPENDS:-"n"}
@@ -282,7 +282,7 @@ subpkgs=("${subpkgs[@]}" "kdelibs-core")
 subdescs=("${subdescs[@]}" "KDE4 Core Library.")
 subdepends=("${subdepends[@]}" "pcre>=8.30 \
 	libgcc strigi>=0.7.2-2 xfsprogs-acl libxrender libice \
-	libxfixes libuuid libkrb5 shared-mime-info udev udisks upower")
+	libxfixes libuuid libkrb5 shared-mime-info systemd>=188 udisks upower")
 subrodepends=("${subrodepends[@]}" "$KDEUIDEP $KIODEP $KJSDEP $KPARTSDEP $SOLIDDEP kdelibs-data")
 subgroups=("${subgroups[@]}" 'kde kde-core')
 subarchs=("${subarchs[@]}" 'i686 x86_64')

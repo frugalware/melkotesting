@@ -1,16 +1,18 @@
-# Compiling Time: 0.04 SBU
+# Compiling Time: 0.03 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=pyalsa
-pkgver=1.0.25
-pkgrel=1
+pkgver=1.0.26
+pkgrel=2
 pkgdesc="Python bindings for ALSA lib"
 url="http://alsa-project.org"
-depends=('alsa-lib')
+depends=('alsa-lib>=1.0.26')
 groups=('lib-extra')
 archs=('i686' 'x86_64')
 up2date="Flasttar $url"
-source=(ftp://ftp.alsa-project.org/pub/$pkgname/$pkgname-$pkgver.tar.bz2)
-sha1sums=('8eb7e94bf096ca8bd3423214712d4e01f2012eb8')
+_F_cd_path="alsa-python-$pkgver"
+source=(http://ftp.frugalware.org/pub/other/sources/alsa/alsa-python-$pkgver.tar.xz)
+sha1sums=('e28be75493cb32c72e12c8ccea7fbf9f9b0ab201')
+
 
 # optimization OK

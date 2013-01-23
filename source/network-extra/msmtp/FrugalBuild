@@ -2,12 +2,12 @@
 # Maintainer: crazy <crazy@frugalware.org>
 
 pkgname=msmtp
-pkgver=1.4.27
+pkgver=1.4.30
 pkgrel=1
 pkgdesc="msmtp is small light SMTP Client"
 depends=('gnutls' 'libidn')
 groups=('network-extra')
-archs=('i686' 'x86_64')
+archs=('i686' 'x86_64' 'arm')
 _F_sourceforge_ext=".tar.bz2"
 Finclude sourceforge
-sha1sums=('e335745133b4729fe84c49f836b4d2fa9281e040')
+sha1sums=('fd469bae0c3394b30b771780e62bbd41c4d5d175')

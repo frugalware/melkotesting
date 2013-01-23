@@ -3,16 +3,17 @@
 # Contributor: bouleetbil <bouleetbil@frogdev.info>
 
 pkgname=at-spi2-core
-pkgver=2.4.2
+pkgver=2.6.3
 pkgrel=1
 pkgdesc="Gnome Accessibility Toolkit"
-depends=('atk' 'dbus-glib' 'gtk+3')
-makedepends=('perl-xml-parser' 'intltool' 'libxtst' 'gobject-introspection')
+depends=('dbus-glib')
+makedepends=('intltool' 'gobject-introspection' 'libxtst' 'libxi' 'libxevie')
 groups=('gnome')
 archs=('i686' 'x86_64')
 _F_gnome_doc="y"
 _F_gnome_ext=".tar.xz"
+_F_gnome_devel="n"
 Finclude gnome gnome-scriptlet
-sha1sums=('c8cc445174d9028d12317432835fa9f5eebbdd25')
+sha1sums=('473e149b24bee3bbdf3ff3bf828461b19c2f5058')
 
 # optimization OK
