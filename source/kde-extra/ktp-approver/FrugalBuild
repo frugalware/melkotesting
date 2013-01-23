@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-approver
-pkgver=0.5.0
+pkgver=0.5.2
 pkgrel=1
 pkgdesc="KDED module that shows a notification when somebody starts a chat with you."
 groups=('kde-extra')
@@ -12,7 +12,7 @@ depends=('ktp-common-internals>=0.4.0')
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('483a1d66caca8db7143087ab917f61cda4233a02')
+sha1sums=('a55967c0852dfa421af8e246d29484bc181e2d26')
 
 replaces=('telepathy-kde-approver')
 provides=("${replaces[@]}")
