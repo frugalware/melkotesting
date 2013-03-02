@@ -2,9 +2,10 @@
 # Maintainer: Miklos Vajna <vmiklos@frugalware.org>
 
 USE_DEVEL=${USE_DEVEL:-"n"}
+USE_STABLE=${USE_STABLE:-"n"}
 
 pkgname=pacman-tools
-pkgver=1.3.3
+pkgver=1.3.4
 Fuse $USE_DEVEL && pkgver=1.1.7.13.g544f9ab
 pkgrel=1
 pkgdesc="Tools for developers for managing packages"
@@ -20,6 +21,10 @@ up2date="Flasttar $url"
 if ! Fuse $USE_DEVEL; then
 	source=($url/$pkgname-$pkgver.tar.gz)
 	signatures=(${source[0]}.asc)
+	if Fuse $USE_STABLE; then
+		source=("${source[@]}" stable.patch)
+		signatures=("${signatures[@]}" '')
+	fi
 else
 	_F_scm_type="git"
 	_F_scm_url="git://git.frugalware.org/pub/other/pacman-tools/pacman-tools"

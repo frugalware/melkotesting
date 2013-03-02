@@ -16,8 +16,8 @@ xorg_protos=('bigreqsproto' 'calibrateproto' 'compositeproto>=0.4' 'damageproto>
 	'xf86vidmodeproto' 'xineramaproto' 'xproto>=7.0.15')
 
 pkgname=xorg-server
-pkgver=1.13.1
-pkgrel=1
+pkgver=1.13.2
+pkgrel=2
 pkgdesc="Modular X.Org X Server"
 groups=('x11' 'xorg-core')
 archs=('i686' 'x86_64' 'arm')
@@ -35,10 +35,10 @@ provides=('libdri')
 replaces=('libdri')
 conflicts=('libdri')
 
-backup=('etc/sysconfig/desktop' 'etc/X11/xorg.conf.d/10-evdev.conf')
+backup=('etc/sysconfig/desktop')
 _F_archive_grepv="99"
 Finclude xorg
-sha1sums=('634b14f38b0208b2c5714955eb40c59d2a99fd84')
+sha1sums=('b9a5e6b2880fa15df925a7ace15314d8637cc96f')
 
 if Fuse $USE_DEVEL; then
 	pkgver=1.6.3.901.151.g120286a
@@ -49,12 +49,10 @@ if Fuse $USE_DEVEL; then
 fi
 
 source=("${source[@]}" \
-	desktop \
-	10-evdev.conf)
+	desktop)
 
 sha1sums=("${sha1sums[@]}" \
-          'e2e25648e1968cf942a0a0458656879042c16939' \
-	  '3fa8d717bce03296e6b097279a410d9672000b08')
+          'e2e25648e1968cf942a0a0458656879042c16939')
 
 Fconfopts="${Fconfopts[@]}
 		--disable-static \
@@ -173,8 +171,6 @@ build() {
 		## -fbdev
 		Fsplit $pkgname-fbdev usr/bin/Xfbdev
 	fi
-	Fmkdir etc/X11/xorg.conf.d
-	Fcp 10-evdev.conf etc/X11/xorg.conf.d/
 }
 
 # optimization OK

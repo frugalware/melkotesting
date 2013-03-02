@@ -1,10 +1,12 @@
 # Compiling Time: 0.20 SBU
 # Maintainer: Michel Hermier <hermier@frugalware.org>
 
+options+=('asneeded')
+
 USE_DEVEL=${USE_DEVEL:-"n"}
 
 pkgname=weston
-pkgver=1.0.3
+pkgver=1.0.5
 pkgrel=1
 pkgdesc="Wayland Default Display Compositor"
 url="http://wayland.freedesktop.org/"
@@ -22,7 +24,7 @@ if Fuse DEVEL; then
 	Finclude scm
 else
 	source=("${url}releases/${pkgname}-${pkgver}.tar.xz")
-	sha1sums=('583589cf7dd8f3300eef2bfb7b1968875a155e2a')
+	sha1sums=('a97030613e066c05e267ea0d7888fd5f7a08eea2')
 fi
 
 build() {

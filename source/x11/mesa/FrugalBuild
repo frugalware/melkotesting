@@ -2,6 +2,8 @@
 # Maintainer: bouleetbil <bouleetbil@frogdev.info>
 # Contributor: crazy <crazy@frugalware.org>
 
+options+=('asneeded')
+
 USE_DEBUG=${USE_DEBUG:-"n"}
 USE_DEVEL=${USE_DEVEL:-"n"}
 USE_DETECTDEPENDS=${USE_DETECTDEPENDS:-"n"} # To detected dependecies with makepkg -a
@@ -32,8 +34,8 @@ fi
 pkgname=mesa
 origname=Mesa
 _F_archive_name="MesaLib"
-pkgver=9.0.1
-pkgrel=5
+pkgver=9.0.3
+pkgrel=1
 pkgdesc="Mesa is a 3D graphics library"
 url="http://mesa3d.sourceforge.net/"
 up2date="lynx --dump 'ftp://ftp.freedesktop.org/pub/mesa/' | grep "pub/mesa/[0-9\.]" | tail -n1 | sed 's|.*/\([0-9\.]\)|\1|'"
@@ -54,9 +56,8 @@ if Fuse DEVEL; then
 	_F_scm_url="git://anongit.freedesktop.org/mesa/mesa"
 	Finclude scm
 else
-	source=("ftp://ftp.freedesktop.org/pub/mesa/$pkgver/MesaLib-$pkgver.tar.bz2" git.patch)
-	sha1sums=('e98e26d8007008b4d2d410778ed5254b32c71b99' \
-          '9e931d1166fd9f2ebef3cc29d9d55e433bbb7bfc')
+	source=("ftp://ftp.freedesktop.org/pub/mesa/$pkgver/MesaLib-$pkgver.tar.bz2")
+	sha1sums=('c4d88d83d8dbe243e30dc07195888e19ddb1c402')
 fi
 
 # Remove libgl-headers-mesa after 1.8

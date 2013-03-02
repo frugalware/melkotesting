@@ -2,79 +2,120 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=calligra-l10n
-pkgver=2.5.4
+pkgver=2.6.1
 pkgrel=1
 pkgdesc="Dummy package."
 url="http://www.calligra-suite.org"
-pkgurl="ftp://ftp.kde.org/pub/kde/stable/calligra-$pkgver/calligra-l10n/"
-Finclude kde
+Finclude kde i18n
 depends=()
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 groups=('locale-extra')
 archs=('i686' 'x86_64')
 up2date="lynx -dump ftp://ftp.kde.org/pub/kde/stable/calligra-latest | grep 'tar' | sed -n 's/.*calligra-\(.*\).tar.bz2.*/\1/;1p'"
-clangs=('ca' 'da' 'de' 'el' 'en_GB' 'es' 'et' 'fi' 'fr' 'gl' 'hu' 'it' 'ja' 'kk' 'nb' 'nds' 'nl' 'pl' 'pt' 'pt_BR' 'ru' 'sk' 'sv' 'uk' 'zh_CN' 'zh_TW')
-cdescs=('Catalan' 'Danish' 'German' 'Greek' 'English (UK)' 'Spanish' 'Estonian' 'Finnish' 'French' 'Galician' 'Hungarian' 'Italian' 'Japanese' 'Kazakh' 'Norwegian (Bokmaal)' 'Low Saxon' 'Dutch' 'Polish' 'Portuguese' 'Brazil portuguese' 'Russian' 'Slovak' 'Swedish' 'Ukrainan' 'Simplified Chinese' 'Chinese Traditional')
-## source()
 source=()
-sha1sums=('522b356bfcfa4d6c2346e912e5260be6db54ad44' \
-          '8a398c6f3add7477a39bce183353d28d78c3e336' \
-          '6228b12cb38ce4e3e1edc5e0a2680703eb11a02d' \
-          'bee0067ca5882bd2132c30e8984910ee3af817f7' \
-          'd3e5e9ba6467124a5c52c9e693af76db6911d086' \
-          '71e46686b033a676dc35b3bcf0911f2f53ccab93' \
-          '163a748beec5f1f0a683f68f8ec7f86e520ee3cb' \
-          'c1f2a887e12a93a1b75bea1db1ff227cff0ff439' \
-          'fcf8d68532b42aeacc6e67c3b4071175517118ee' \
-          'b2172a2a716a04919a058b8a438e86c99eb93427' \
-          '4ad28ec672ecfbf47ea4ce348a6f2b1f21864450' \
-          '2a70cd3a43603ba63483514dde369e0e8e0b10c0' \
-          'b54e0a3805ed6215190877843cf437b6d8bc6ce5' \
-          'b5877e7d88a741fdaaa9ae29c3bf719f17c74cbf' \
-          'ac3e57b0d34f2a2c06eea5e9118d89acefe47951' \
-          'ec9ba1d746dd5fcfc8998cf8e7f61600d1e53831' \
-          'c080f9605d54def164f6b220bd830395b40705d6' \
-          '910f58a18f1e9cd2d2ff16631fb2a1305070279f' \
-          '5d41981b91a01fe8214ba13ba3b2cb393686a8ce' \
-          '5da67979e45ef852d8ffa99008b643fc03378b45' \
-          '757fe84f5ad57d0d91a9d4012e0d2fd59ddf1df2' \
-          'b7991bb5a7b2633f6f1ba7db5c99ccbb9a489266' \
-          'f931a434f011bcec281c88f84569b94db7e7e660' \
-          'bf54b181c1ca42a4f2d32fceb4aeec3947d691bd' \
-          '41a0fa29b524006b1f0bd286f10428506c546d52' \
-          '7bcb34622f452f5b31121046cfe3b5bf2784e232')
-i=0
-while [ $i -lt ${#clangs[@]} ]
-do
-        source=("${source[@]}" "$pkgurl/$pkgname-${clangs[$i]}-$pkgver.tar.bz2")
-        i=$(($i+1))
-done
+subpkgs=()
+sha1sums=('e6e128cbf85c6d96650092d241ff1ec0db6250d4' \
+          'eb01189526d8256bd7dbff030765c1f06a802d0b' \
+          'c0ead78149e6444d5454ae5886d463cff6e2482f' \
+          '2af7922f1994475a3c7353acd29940b75d415f44' \
+          'ed1279cb9611baaac627615e820ce5c978047564' \
+          '438b3787aa495654a2317791d5cff54f00ece10b' \
+          '81349c0a8a07279386e70719ffae6a452f70309e' \
+          '8948a6b8c58a167abfa03fe010f5d1cb72d32623' \
+          '4ab45001ba15d3521b1200060b05ef1ab1ff0b0a' \
+          '64047afdaa5926c1f9486969dbf3e34b9e5afd60' \
+          '400b7e3525e1bcbfa1af75e735871bfb60ace3e8' \
+          '5936f9c23bc7ffe869c12d37b6a986ff0744e0dc' \
+          '688a2ab8a36d062a3a01a2c12c9f8dca8254f20f' \
+          'b0bf106adae72e9aaad10d46a3a0c1b7561ebd02' \
+          'd43496e6754b269c92dc7a0b178bd574ca1bb6e0' \
+          'ad941c2b0c31702b97af81b81715c38db6a1f912' \
+          'a2ecec92b7d2afecad69f1efae2d2b86ef1c3fa4' \
+          'f37324b11afa25cffff96f702443bfeae855f4cc' \
+          '0c9f3fee5e77498a632fe0c783deb386f4a3934b' \
+          '2ce26aa5077b39048b1b2e189923fb607438ef11' \
+          '3319ab40376a1f969028fe4c789daf7aa38e2f22' \
+          '10e8517476cd3d8ff2d1e71682832cccb7ac6a18' \
+          '0b80f30514245226f70b9d2b429b1104ade724fb' \
+          '1762a7eb05276f34261f06dde09fe37a323c03ab' \
+          '97c909e82ee7f21ee240e7c6e3245ce932e8fede' \
+          'a34391d758b9320a01e66050df92417a98858d8a' \
+          '36f7d1077221e086c0f75cadc3d596aa836e6781' \
+          'a780f8d4035c8f21f7ad86c60b60502aa93e0287')
 
-## subpkgs()
-i=0
-while [ $i -lt ${#clangs[@]} ]
-do
-        subpkgs=("${subpkgs[@]}" "$pkgname-`echo ${clangs[$i]}|tr [A-Z] [a-z]`")
-        subdescs=("${subdescs[@]}" "${cdescs[$i]} Localization for Calligra.")
-        subdepends=("${subdepends[@]}" "calligra-libs>=$pkgver")
-        subgroups=("${subgroups[@]}" "locale-extra")
-        subarchs=("${subarchs[@]}" "i686 x86_64")
-        i=$(($i+1))
-done
-
-build() {
-	for old in en_GB pt_BR zh_CN zh_TW
-	do
-		new=`echo $old|tr [A-Z] [a-z]`
-		mv $Fsrcdir/$pkgname-$old-$pkgver \
-			$Fsrcdir/$pkgname-$new-$pkgver
-	done
-
-	for csub in "${clangs[@]}"
-	do
-		csub=`echo $csub|tr [A-Z] [a-z]`
-		cd "$Fsrcdir/$pkgname-$csub-$pkgver"
-		CMake_build
-		Fsplit $pkgname-$csub  /\*
-	done
+## this part is almost the same of kde-l10n
+kde_l10n_language_from_tag() {
+	local lang
+	case $1 in
+	'be@latin')	lang='Belarusian (Latin)';;
+	'bn_IN')	lang='Bengali (India)';;
+	'ca@valencia')	lang='Catalan (Valencian)';;
+	'en_GB')	lang='British';;
+	'pt_BR')	lang='Brazilian';;
+	'sr@ijekavian')	lang='Serbian (Ijekavian)';;
+        'sr@ijekavianlatin')	lang='Serbian (Ijekavian Latin)';;
+        'sr@latin')	lang='Serbian (Latin)';;
+	'uz@cyrillic')	lang='Uzbek (Cyrillic)';;
+	'zh_CN')	lang='Chinese Simplified';;
+	'zh_HK')	lang='Chinese Hong Kong';;
+	'zh_TW')	lang='Chinese Traditional';;
+	*)	lang=`i18n_language_from_subtag "$1"`
+	esac
+	echo "$lang"
 }
+
+kde_l10n_lang_add() {
+	klangs+=("$1")
+	source+=("$_F_kde_mirror/$_F_kde_folder/calligra-$pkgver/$pkgname/$pkgname-$1-$pkgver.tar.bz2")
+	subpkgs+=("$pkgname-`Flowerstr "$1"`")
+        subdescs+=("`kde_l10n_language_from_tag $1` localization for Calligra.")
+        subdepends+=('')
+        subconflicts+=("kde-i18n-`Flowerstr "$1"`")
+        subreplaces+=("kde-i18n-`Flowerstr "$1"`")
+        subprovides+=("kde-i18n-`Flowerstr "$1"`")
+        subgroups+=("locale-extra")
+        subarchs+=("i686 x86_64")
+}
+
+build()
+{
+        for ksub in "${klangs[@]}"
+        do
+		echo $ksub
+                cd "$Fsrcdir/$pkgname-$ksub-$pkgver"
+                ksub=`Flowerstr "$ksub"`
+                KDE_build
+                Fsplit $pkgname-$ksub  /usr
+        done
+}
+
+## generate this with something like
+## for i in $(lynx -dump ftp://ftp.kde.org/pub/kde/stable/calligra-2.6.0/calligra-l10n/ | sed -n "s/.*calligra-l10n-\(.*\)-.*.tar.bz2$/\1/p");do echo kde_l10n_lang_add \"$i\" >> FrugalBuild;done
+kde_l10n_lang_add "bs"
+kde_l10n_lang_add "ca"
+kde_l10n_lang_add "ca@valencia"
+kde_l10n_lang_add "da"
+kde_l10n_lang_add "de"
+kde_l10n_lang_add "el"
+kde_l10n_lang_add "en_GB"
+kde_l10n_lang_add "es"
+kde_l10n_lang_add "et"
+kde_l10n_lang_add "fi"
+kde_l10n_lang_add "fr"
+kde_l10n_lang_add "gl"
+kde_l10n_lang_add "hu"
+kde_l10n_lang_add "it"
+kde_l10n_lang_add "kk"
+kde_l10n_lang_add "nb"
+kde_l10n_lang_add "nds"
+kde_l10n_lang_add "nl"
+kde_l10n_lang_add "pl"
+kde_l10n_lang_add "pt"
+kde_l10n_lang_add "pt_BR"
+kde_l10n_lang_add "ru"
+kde_l10n_lang_add "sk"
+kde_l10n_lang_add "sl"
+kde_l10n_lang_add "sv"
+kde_l10n_lang_add "uk"
+kde_l10n_lang_add "zh_CN"
+kde_l10n_lang_add "zh_TW"

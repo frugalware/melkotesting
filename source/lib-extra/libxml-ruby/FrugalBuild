@@ -1,14 +1,14 @@
-# Compiling Time: 0.08 SBU
+# Compiling Time: 0.13 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=libxml-ruby
-pkgver=2.4.0
+pkgver=2.6.0
 pkgrel=1
 pkgdesc="Provides Ruby language bindings for the GNOME libxml2 XML toolkit"
 url="http://xml4r.github.com/libxml-ruby"
-depends=('libxml2')
+depends=('libxml2' 'xz')
 groups=('lib-extra')
 archs=('i686' 'x86_64')
 source=(http://rubygems.org/downloads/$pkgname-$pkgver.gem)
 Finclude gem
-sha1sums=('117a31827d164242c9eb0f72275ecdb27a4856e8')
+sha1sums=('a337c4f0e56d24c7658df8de821dac0248621d66')
