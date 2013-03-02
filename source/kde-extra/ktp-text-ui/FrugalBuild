@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-text-ui
-pkgver=0.5.2
+pkgver=0.5.3
 pkgrel=1
 pkgdesc="Telepathy text chat handler."
 groups=('kde-extra')
@@ -12,7 +12,7 @@ depends=("ktp-common-internals>=$pkgver" "libqtwebkit>=$_F_kde_qtver" "libknotif
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver" 'telepathy-logger-qt' 'boost')
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('5dd8d66b9011d96c0637f4b15e6c3912edef6c17')
+sha1sums=('bd55810ebe781319c5427f6d4eae4a1cb7d1fadd')
 
 replaces=('telepathy-kde-text-ui')
 provides=("${replaces[@]}")
