@@ -2,17 +2,17 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-accounts-kcm
-pkgver=0.5.2
+pkgver=0.5.3
 pkgrel=1
 pkgdesc="KCM Module for configuring Telepathy Instant Messaging Accounts."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
-depends=("ktp-common-internals>=0.4.0")
+depends=("ktp-common-internals>=$pkgver")
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('5335e33715488c246fd1436f44de2864ab32e257')
+sha1sums=('4cf25b693b2eee1a053c6f664cd21954b8b85eba')
 
 replaces=('telepathy-kde-accounts-kcm-plugins' 'telepathy-kde-accounts-kcm')
 provides=("${replaces[@]}")
