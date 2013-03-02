@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-contact-applet
-pkgver=0.5.2
+pkgver=0.5.3
 pkgrel=1
 pkgdesc="Plasma applet for displaying contacts."
 groups=('kde-extra')
@@ -12,7 +12,7 @@ depends=("ktp-common-internals>=$pkgver" "libplasma>=$_F_kde_ver" "libqtdeclarat
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdebase-workspace>=$_F_kde_ver" "kdebase-workspace-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('1d0f479c227698cdd79ebe040aee6fc9a8ad17c0')
+sha1sums=('10c90e2b14e9aa47cd0bebd444be6100d1afb1a1')
 
 replaces=('telepathy-kde-contact-applet')
 provides=("${replaces[@]}")
