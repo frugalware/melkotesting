@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=ktp-contact-list
-pkgver=0.5.2
+pkgver=0.5.3
 pkgrel=1
 pkgdesc="Telepathy contact list application."
 groups=('kde-extra')
@@ -12,7 +12,7 @@ depends=('ktp-common-internals>=$pkgver')
 makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
 up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
 source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('0bae4ded1384f35f9a809145b8192f819ea708ec')
+sha1sums=('763aa6d32bd780fc82cb64737232d8afaef6d895')
 
 replaces=('telepathy-kde-contact-list')
 provides=("${replaces[@]}")
