@@ -1,17 +1,26 @@
 # Compiling Time: 0.37 SBU
 # Maintainer: Melko <melko@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=ktp-call-ui
-pkgver=0.5.0
+pkgver=0.6.2
 pkgrel=1
 pkgdesc="Voice/Video Call UI for Telepathy."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
-depends=("ktp-common-internals>=0.5.0" 'qt-gstreamer')
-makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver" 'boost')
-up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
-source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('22c556e21a914a5f68a829bf6354012887cfae57')
+depends=("ktp-common-internals>=0.6.0" 'qt-gstreamer' 'telepathy-farstream-0.4')
+makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver" \
+ 	'boost')
+up2date="Flastverdir $_F_kde_mirror/stable/kde-telepathy/"
+source=($_F_kde_mirror/stable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('8fe136432e6ffdef48264fcfd3cd757b453fbf9a')
+
+build() {
+	export PKG_CONFIG_PATH=/usr/lib/telepathy-legacy/pkgconfig || Fdie
+	CMake_build
+}
 
 # optimization OK
+

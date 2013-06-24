@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=telepathy-logger-qt
-pkgver=0.5.3
+pkgver=0.6.0
 pkgrel=1
 pkgdesc="Qt bindings for telepathy logger."
 groups=('xlib-extra')
@@ -10,9 +10,9 @@ archs=('i686' 'x86_64')
 Finclude kde
 depends=('telepathy-qt4' 'telepathy-logger' 'qt-gstreamer')
 makedepends=("${makedepends[@]}" "boost")
-up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
-source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('f3e1bd76a2e9c6d3b493a5ad07d76d1ce164bc6f')
+up2date="Flastverdir $_F_kde_mirror/stable/kde-telepathy/"
+source=($_F_kde_mirror/stable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('3e58f7a25ad192d9a62b52784492b317b77a5ffa')
 
 build(){
 	CMake_prepare_build

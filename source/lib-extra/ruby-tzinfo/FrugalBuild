@@ -1,0 +1,14 @@
+# Compiling Time: 0.04 SBU
+# Maintainer: Slown <slown@frugalware.org>
+
+pkgname=ruby-tzinfo
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="A Ruby library for time zone transformations"
+url="http://tzinfo.rubyforge.org"
+depends=()
+groups=('lib-extra')
+archs=('i686' 'x86_64')
+_F_gem_name=${pkgname/ruby-/}
+Finclude gem
+sha1sums=('fc4c6f1c140dcf2634726ed5dddb568aa07dfec2')

@@ -1,0 +1,30 @@
+# Compiling Time: 0.10 SBU
+# Maintainer:  DeX77 <dex77@frugalware.org>
+
+pkgname=ocaml-findlib
+pkgver=1.4
+pkgrel=1
+license=('MIT')
+archs=('i686' 'x86_64')
+pkgdesc='Objective Caml (OCaml) package manager'
+url='http://projects.camlcity.org/projects/findlib.html'
+depends=('ocaml')
+up2date="Flasttar http://download.camlcity.org/download/"
+source=("http://download.camlcity.org/download/findlib-$pkgver.tar.gz")
+options=('nostrip') # otherwise the bytecode gets broken
+_F_archive_grep="findlib"
+_F_archive_name="findlib"
+Fconfopts="-config /etc/findlib.conf -sitelib /usr/lib/ocaml \
+	-mandir /usr/share/man -bindir /usr/bin"
+_F_make_opts="all opt"
+Fprefix=""
+groups=('devel-extra')
+sha1sums=('07048076758e4ca892f06ff535d7cab033833bde')
+
+build() {
+ Fbuild
+ Fsed	path=\"\/usr\/lib\/ocaml\" \
+	path="\/usr\/lib\/ocaml:\/usr\/lib\/ocaml\/site-lib" \
+	$Fdestdir/etc/findlib.conf
+}
+

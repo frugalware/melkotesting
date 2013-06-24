@@ -1,21 +1,23 @@
-# Compiling time: 0.34 SBU
+# Compiling time: 1.03 SBU
 # Maintainer: Baste <baste@frugalware.org>
 # Contributor: bouleetbil <bouleetbil@frogdev.info>
 
+options+=('asneeded')
+
 pkgname=gcr
-pkgver=3.6.2
+pkgver=3.8.2
 pkgrel=1
 pkgdesc="A library for bits of crypto UI"
-depends=('dbus-glib' 'gtk+3>=3.5.8' 'p11-kit')
+depends=('dbus-glib' 'gtk+3>=3.8.0' 'p11-kit')
 makedepends=('intltool' 'gobject-introspection')
 groups=('gnome' 'gnome-minimal')
 archs=('i686' 'x86_64')
 _F_gnome_iconcache="y"
 _F_gnome_glib="y"
 _F_gnome_doc="y"
-_F_gnome_ext=".tar.xz"
 _F_gnome_devel="n"
+_F_gnome_ext=".tar.xz"
 Finclude gnome-scriptlet gnome
-sha1sums=('95ee30fb6424e13baa6ae53584ccd8b0cf4c9798')
+sha1sums=('241acff88075bb6a8f7ee199c0e31ce6c768806e')
 
 # optimization OK

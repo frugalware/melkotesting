@@ -1,5 +1,7 @@
-# Compiling Time: 1.75 SBU
+# Compiling Time: 1.76 SBU
 # Maintainer: Melko <melko@frugalware.org>
+
+options+=('asneeded')
 
 pkgname=kdeplasma-addons
 pkgrel=1

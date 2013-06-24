@@ -1,18 +1,20 @@
 # Compiling Time: 0.37 SBU
 # Maintainer: Melko <melko@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=ktp-contact-list
-pkgver=0.5.3
+pkgver=0.6.2
 pkgrel=1
 pkgdesc="Telepathy contact list application."
 groups=('kde-extra')
 archs=('i686' 'x86_64')
 Finclude kde
 depends=('ktp-common-internals>=$pkgver')
-makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver")
-up2date="Flastverdir $_F_kde_mirror/unstable/kde-telepathy/"
-source=($_F_kde_mirror/unstable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
-sha1sums=('763aa6d32bd780fc82cb64737232d8afaef6d895')
+makedepends=("${makedepends[@]}" "kdelibs>=$_F_kde_ver" "kdelibs-compiletime>=$_F_kde_ver" "boost")
+up2date="Flastverdir $_F_kde_mirror/stable/kde-telepathy/"
+source=($_F_kde_mirror/stable/kde-telepathy/$pkgver/src/${pkgname}-${pkgver}.tar.bz2)
+sha1sums=('fe971a74ab966faea0680b6231c545754b9e00cf')
 
 replaces=('telepathy-kde-contact-list')
 provides=("${replaces[@]}")

@@ -1,12 +1,12 @@
-# Compiling Time: 0.09 SBU
+# Compiling Time: 1.98 SBU
 # Maintainer: DeX77 <dex77@frugalware.org>
 
 pkgname=apr-util
-pkgver=1.5.1
-pkgrel=5
+pkgver=1.5.2
+pkgrel=2
 pkgdesc="Apache Portable Runtime"
 url="http://apr.apache.org/"
-depends=('apr=1.4.6-4' 'db>=4.7.25' 'gdbm>=1.10' 'expat')
+depends=('apr=1.4.8' 'db>=4.7.25' 'gdbm>=1.10' 'expat')
 groups=('network')
 archs=('i686' 'x86_64' 'arm')
 up2date="Flasttar http://apache.mirror.iphh.net/apr/"
@@ -16,6 +16,6 @@ Fconfopts+=" --with-apr=/usr \
 	--with-expat=/usr \
 	--with-berkeley-db \
 	--enable-layout=RedHat"
-sha1sums=('084000daa76b85a4e7021b1847840ca8fea3736c')
+sha1sums=('67139f51ee6c484f3f1b7b3edc0b00dae3640b0a')
 
 # optimization OK

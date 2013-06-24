@@ -2,7 +2,7 @@
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=ruby-bson
-pkgver=1.8.2
+pkgver=1.9.0
 pkgrel=1
 pkgdesc="Ruby implementation of BSON"
 url="http://www.mongodb.org"
@@ -10,4 +10,4 @@ groups=('lib-extra')
 archs=('i686' 'x86_64')
 _F_gem_name=${pkgname/ruby-/}
 Finclude gem
-sha1sums=('b175e93d9450cea3388b6195adb45023b759efd3')
+sha1sums=('c1d6cbc23eb6cc5a4d478c2f2c49fe1322c494b8')

@@ -1,8 +1,10 @@
 # Compiling Time: 0.14 SBU
 # Maintainer: Melko <melko@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=libmicrohttpd
-pkgver=0.9.25
+pkgver=0.9.27
 pkgrel=1
 pkgdesc="C library that make easy to run an HTTP server as part of an application"
 url="http://www.gnu.org/software/libmicrohttpd/"
@@ -11,6 +13,6 @@ groups=('lib-extra')
 archs=('i686' 'x86_64')
 up2date="Flasttar ftp://ftp.gnu.org/gnu/$pkgname/"
 source=(ftp://ftp.gnu.org/gnu/$pkgname/$pkgname-$pkgver.tar.gz)
-sha1sums=('da24fe9572f83e67959b0e32e15d261fcbf46bc1')
+sha1sums=('430accec31334d49e2d6b4b9407a17576d5a6cd1')
 
 # optimization OK

@@ -2,14 +2,14 @@
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=cdiff
-pkgver=0.7.1
+pkgver=0.9.1
 pkgrel=1
 pkgdesc="Colored, incremental, side-by-side diff viewer"
 depends=('python' 'less')
 groups=('devel-extra')
 archs=('i686' 'x86_64')
 Finclude pypi
-sha1sums=('68a7899c62b9c3c5c0c0135ac5e685c3a494157d')
+sha1sums=('4c818c807e508e38a7ecbf381fa6c35cfb7e2fab')
 
 build() {
 	Fcd

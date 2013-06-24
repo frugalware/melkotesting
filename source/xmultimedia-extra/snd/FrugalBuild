@@ -1,8 +1,9 @@
-# Compiling Time: 1.37 SBU
-# Maintainer: Devil505 <devil505linux@gmail.com>
+# Compiling Time: 1.14 SBU
+# Maintainer: kikadf <kikadf.01@gmail.com>
+# Contributor: Devil505 <devil505linux@gmail.com>
 
 pkgname=snd
-pkgver=13.0
+pkgver=13.7
 pkgrel=1
 pkgdesc="A sound editor, with JACK and GTK+ enabled"
 depends=('fam' 'fftw' 'gsl' 'gtk+2' 'jack' 'ruby')
@@ -10,7 +11,7 @@ makedepends=('ladspa_sdk')
 groups=('xmultimedia-extra')
 archs=('i686' 'x86_64')
 Finclude sourceforge
-sha1sums=('277af940719c3c8c2879cb3ea7e117cebde65713')
+sha1sums=('00bed5b2fa964da02fa87d0e0af8f55c4003ef1f')
 
 build() {
 	Fcd

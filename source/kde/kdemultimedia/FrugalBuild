@@ -1,5 +1,7 @@
-# Compiling Time: 1.2 SBU
+# Compiling Time: 1.21 SBU
 # Maintainer: Melko <melko@frugalware.org>
+
+options+=('asneeded')
 
 pkgname=kdemultimedia
 pkgrel=1

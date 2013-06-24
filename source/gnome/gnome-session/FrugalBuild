@@ -4,30 +4,29 @@
 
 USE_DEBUG=${USE_DEBUG:-"y"}
 
+options+=('asneeded')
+
 pkgname=gnome-session
-pkgver=3.6.2
+pkgver=3.8.2.1
 pkgrel=1
 pkgdesc="GNOME session manager"
-depends=('libxml2>=2.7.8' 'gnome-control-center>=3.6.0' 'dbus-x11' 'gsettings-desktop-schemas' \
-	'polkit-gnome' 'dbus-glib' 'gnome-keyring>=3.4.1' 'libnotify' 'dconf' \
-	'upower' 'usermode' 'gnome-desktop>=3.5.91' 'gconf' 'systemd')
-makedepends=('intltool' 'gnome-common')
-#gnome-session start gnome-shell and if failed start gnome-panel
-rodepends=('gnome-panel' 'gnome-shell')
+depends=('gnome-desktop>=3.7.91' 'upower' 'json-glib' 'gconf' 'systemd' \
+	'dbus-glib' 'gsettings-desktop-schemas' 'dconf' 'dbus-x11')
+makedepends=('intltool' 'xmlto')
+rodepends=('gnome-shell')
 groups=('gnome' 'gnome-minimal')
 archs=('i686' 'x86_64')
 _F_gnome_glib="y"
 _F_gnome_doc="y"
-_F_gnome_ext=".tar.xz"
 _F_gnome_iconcache="y"
 _F_gnome_desktop="y"
 _F_gnome_devel="n"
+_F_gnome_ext=".tar.xz"
 Finclude gnome gnome-scriptlet
 Fconfopts+=" --with-gtk=3.0 --enable-systemd"
 #source=($source check_XGetWindowProperty.diff)
-source=( $source llvmpipe.patch)
-sha1sums=('f3e846ea7b1d86055d85ff17b0c79cee2aa83acd' \
-          '9e89eeab3262122f627624f6fff31e4bffce1002')
+#source=( $source llvmpipe.patch)
+sha1sums=('7b7de84460389d6814bbf600b9f0024b2b9c728f')
 
 build() {
 	Fcd

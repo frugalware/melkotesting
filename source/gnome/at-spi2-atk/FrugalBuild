@@ -1,21 +1,23 @@
-# Compiling Time: 0.52 SBU
+# Compiling Time: 0.12 SBU
 # Maintainer: Baste <baste@frugalware.org>
 # Contributor: bouleetbil <bouleetbil@frogdev.info>
 
+options+=('asneeded')
+
 pkgname=at-spi2-atk
-pkgver=2.6.2
+pkgver=2.8.1
 pkgrel=1
 pkgdesc="Gnome Accessibility Toolkit"
-depends=('atk>=2.6.0' 'dbus-glib' 'at-spi2-core>=2.6.1')
-makedepends=('perl-xml-parser' 'intltool' 'gtk+2')
+depends=('atk>=2.7.90' 'dbus-glib' 'at-spi2-core>=2.8.0' 'libx11' 'libsm')
+makedepends=('perl-xml-parser' 'intltool')
 groups=('gnome')
 archs=('i686' 'x86_64')
 _F_gnome_doc="n"
-_F_gnome_ext=".tar.xz"
-_F_gnome_glib="y"
+_F_gnome_glib="n"
 _F_gnome_devel="n"
+_F_gnome_ext=".tar.xz"
 Finclude gnome gnome-scriptlet
-sha1sums=('4de46325b4a682478cf4295237e3359372b81911')
+sha1sums=('73707c46ebb72867e51f9b33abb2d09bfdc4d082')
 replaces=('at-spi' 'gok' 'dasher')
 provides=('at-spi')
 conflicts=('at-spi')

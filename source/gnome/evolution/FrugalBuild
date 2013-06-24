@@ -2,10 +2,12 @@
 # Maintainer: Baste <baste@frugalware.org>
 # Contributor: bouleetbil <bouleetbil@frogdev.info>
 
+options+=('asneeded')
+
 pkgname=evolution
-pkgver=3.6.3
-evo_major=3.6
-pkgrel=1
+pkgver=3.8.2
+evo_major=3.8
+pkgrel=2
 pkgdesc="Integrated mail, calendar and address book suite for GNOME"
 depends=('unique' 'gst1-plugins-base' 'gnome-desktop>=3.3.1' 'libcanberra-gtk' 'xcb-util>=0.3.8' 'clutter-gtk')
 rodepends=("$pkgname-base")
@@ -15,14 +17,16 @@ groups=('gnome')
 archs=('i686' 'x86_64')
 _F_gnome_desktop="y"
 _F_gnome_iconcache="y"
-_F_gnome_ext=".tar.xz"
 _F_gnome_glib="y"
 _F_gnome_devel="n"
+_F_gnome_ext=".tar.xz"
 Finclude gnome gnome-scriptlet
 url="http://www.gnome.org/projects/evolution/"
 #remove by upstream :/
 replaces=('evolution-conduit' 'evolution-rss' 'anjal' 'gnome-pilot' 'gnome-pilot-conduits' 'mail-notification')
 provides=('gnome-pilot' 'gnome-pilot-conduits')
+options+=('force')
+
 
 subpkgs=("${subpkgs[@]}" "$pkgname-pst")
 subdescs=("${subdescs[@]}" "PST importer plugin for Evolution")
@@ -55,19 +59,19 @@ subrodepends=("${subrodepends[@]}" "")
 subgroups=("${subgroups[@]}" 'gnome')
 subarchs=("${subarchs[@]}" 'i686 x86_64')
 
-#subpkgs=("${subpkgs[@]}" "$pkgname-bogofilter")
-#subdescs=("${subdescs[@]}" "bogofilter for Evolution")
-#subdepends=("${subdepends[@]}" "bogofilter")
-#subrodepends=("${subrodepends[@]}" "$pkgname")
-#subgroups=("${subgroups[@]}" 'gnome-extra')
-#subarchs=("${subarchs[@]}" 'i686 x86_64')
+subpkgs=("${subpkgs[@]}" "$pkgname-bogofilter")
+subdescs=("${subdescs[@]}" "bogofilter for Evolution")
+subdepends=("${subdepends[@]}" "bogofilter")
+subrodepends=("${subrodepends[@]}" "$pkgname")
+subgroups=("${subgroups[@]}" 'gnome-extra')
+subarchs=("${subarchs[@]}" 'i686 x86_64')
 
-#subpkgs=("${subpkgs[@]}" "$pkgname-spamassassin")
-#subdescs=("${subdescs[@]}" "spamassassin library for Evolution")
-#subdepends=("${subdepends[@]}" "spamassassin")
-#subrodepends=("${subrodepends[@]}" "$pkgname")
-#subgroups=("${subgroups[@]}" 'gnome-extra')
-#subarchs=("${subarchs[@]}" 'i686 x86_64')
+subpkgs=("${subpkgs[@]}" "$pkgname-spamassassin")
+subdescs=("${subdescs[@]}" "spamassassin library for Evolution")
+subdepends=("${subdepends[@]}" "spamassassin")
+subrodepends=("${subrodepends[@]}" "$pkgname")
+subgroups=("${subgroups[@]}" 'gnome-extra')
+subarchs=("${subarchs[@]}" 'i686 x86_64')
 
 #TODO : added mono binding
 
@@ -103,7 +107,8 @@ build() {
 		--enable-nm \
 		--enable-pst-import \
 		--disable-image-inline \
-		--enable-weather
+		--enable-weather \
+		--disable-text-highlight
 
 	Fsed '.*KILL_PROCESS_CMD.*' '#define KILL_PROCESS_CMD "killall"' config.h
 	make || Fdie
@@ -136,27 +141,27 @@ build() {
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libecontacteditor.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libecontactlisteditor.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libemformat.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libemiscwidgets.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libemiscwidgets.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libeshell.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libessmime.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libetable.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libetext.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libetimezonedialog.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libetable.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libetext.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libetimezonedialog.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libeutil.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-a11y.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-a11y.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-addressbook-importers.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-calendar.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-calendar-importers.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-mail-importers.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-mail.*
 	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libevolution-smime.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libfilter.*
-	Fsplit $pkgname-base usr/lib/evolution/$evo_major/libmenus.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libfilter.*
+	#Fsplit $pkgname-base usr/lib/evolution/$evo_major/libmenus.*
 
 	Fbuild_gnome_scriptlet
 }
 
 #source=($source glib.diff)
-sha1sums=('bad8f9efc46b0a526be11fc7f676aed3f27a7e36')
+sha1sums=('3a3cb5f574efe2fd17fd0082146fc9fe3b53a06f')
 
 # optimization OK

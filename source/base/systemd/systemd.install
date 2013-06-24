@@ -4,14 +4,15 @@ post_common() {
 	journalctl --update-catalog
 	systemd-machine-id-setup
 	systemctl --quiet enable \
+		xorg-set-resolution.service \
 		getty@.service \
 		remote-fs.target
+	getent group systemd-journal 2>&1 > /dev/null || groupadd -g 57 systemd-journal
+	getent group systemd-journal-gateway 2>&1 > /dev/null || groupadd -g 58 systemd-journal-gateway
+	getent passwd systemd-journal-gateway 2>&1 > /dev/null || useradd -u 58 -g systemd-journal-gateway -d /var/log/journal -s /usr/sbin/nologin -c "Journal Gateway" systemd-journal-gateway
 }
 
 post_install() {
-	# runlevel
-	ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
-
 	post_common
 
 	true
@@ -31,6 +32,9 @@ post_upgrade() {
 
 post_remove() {
 	getent group lock 2>&1 > /dev/null && groupdel lock
+	getent group systemd-journal 2>&1 > /dev/null && groupdel systemd-journal
+	getent passwd systemd-journal-gateway 2>&1 > /dev/null && userdel systemd-journal-gateway
+	getent group systemd-journal-gateway 2>&1 > /dev/null && groupdel systemd-journal-gateway
 }
 
 op=$1

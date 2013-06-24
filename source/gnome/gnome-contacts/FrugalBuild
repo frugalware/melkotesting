@@ -1,21 +1,23 @@
-# Compiling time: 0.10 SBU
+# Compiling time: 0.34 SBU
 # Maintainer: Baste <baste@frugalware.org>
 # Contributor: bouleetbil <bouleetbil@frogdev.info>
 
+options+=('asneeded')
+
 pkgname=gnome-contacts
-pkgver=3.6.2
+pkgver=3.8.2
 pkgrel=1
 pkgdesc="Contacts manager for gnome"
 depends=('folks>=0.8.0' 'gtk+3' 'libnotify' 'gnome-desktop' 'libkrb5' 'icu4c>=4.8' 'cheese')
-makedepends=('vala' 'intltool' 'krb5')
+makedepends=('vala' 'intltool' 'krb5' 'gobject-introspection')
 groups=('gnome')
 archs=('i686' 'x86_64')
-_F_gnome_ext=".tar.xz"
 _F_gnome_desktop="y"
 _F_gnome_glib="y"
 _F_gnome_devel="n"
+_F_gnome_ext=".tar.xz"
 Finclude gnome gnome-scriptlet
-sha1sums=('2b23223cd5f3fd7cd27803139806c875b73e6bc4')
+sha1sums=('bab2dd24f143def00c1cd0764fb4e4d20d3d975c')
 replaces=('rubrica' 'contacts-eds')
 
 # optimization OK

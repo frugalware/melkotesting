@@ -1,5 +1,7 @@
-# Compiling Time: 0.88 SBU
+# Compiling Time: 0.89 SBU
 # Maintainer: Melko <melko@frugalware.org>
+
+options+=('asneeded')
 
 pkgname=gwenview
 pkgrel=1

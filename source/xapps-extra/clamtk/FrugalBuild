@@ -1,9 +1,11 @@
 # Compiling time: 0.01 SBU
-# Maintainer: Devil505 <devil505linux@gmail.com>
+# Maintainer: PacMiam <PacMiam@gmx.fr>
 # Contributor: Janos Kovacs <janny@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=clamtk
-pkgver=4.42
+pkgver=4.45
 pkgrel=1
 pkgdesc="ClamTk is a GUI front-end for ClamAV using gtk2-perl"
 depends=('clamav' 'perl' 'perl-gtk2' 'perl-date-calc' 'perl-gettext' 'perl-config-tiny' 'perl-file-find-rule' 'perl-libwww' 'perl-net-dns')
@@ -12,7 +14,7 @@ replaces=('klamav')
 archs=('i686' 'x86_64')
 Finclude sourceforge
 url="http://clamtk.sourceforge.net/"
-sha1sums=('bbc5302598b46055715f5a2d51deea47e9c02c74')
+sha1sums=('d8c9328fdb075dbb0d05bb9c7fbe27850bb0f234')
 
 build()
 {

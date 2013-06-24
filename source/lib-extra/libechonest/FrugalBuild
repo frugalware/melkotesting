@@ -1,8 +1,10 @@
 # Compiling Time: 0.44 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=libechonest
-pkgver=2.0.3
+pkgver=2.1.0
 pkgrel=1
 pkgdesc="C++ library for interfacing with Echo Nest."
 url="https://projects.kde.org/projects/playground/libs/$pkgname"
@@ -12,6 +14,6 @@ archs=('i686' 'x86_64')
 up2date="Flasttar $url"
 source=(http://files.lfranchi.com/$pkgname-$pkgver.tar.bz2)
 Finclude cmake
-sha1sums=('2fbcfbb9107c0538ba7dd7361e2049cc272d09c8')
+sha1sums=('77b06cfb96675c4795902c68a802b71a33a0b48f')
 
 # optimization OK

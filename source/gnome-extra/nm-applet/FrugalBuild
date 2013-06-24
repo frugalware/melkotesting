@@ -1,0 +1,61 @@
+# Compiling Time: 2.23 SBU
+# Maintainer: Baste <baste@frugalware.org>
+# Contributor: bouleetbil <bouleetbil@frogdev.info>
+
+options+=('asneeded')
+
+pkgname=nm-applet
+_F_gnome_name=network-manager-applet
+pkgver=0.9.8.2
+pkgrel=1
+pkgdesc="Network Management applet"
+depends=('iso-codes' 'networkmanager>=0.9.8.0' 'libsecret' \
+	'libnotify' 'gconf')
+makedepends=('intltool' 'gtk+3' 'mobile-broadband-provider-info' \
+	'gnome-bluetooth' 'gobject-introspection')
+rodepends=('nm-connection-editor')
+groups=('gnome-extra')
+archs=('i686' 'x86_64')
+_F_gnome_ext=".tar.xz"
+_F_gnome_iconcache="y"
+_F_gnome_devel="y"
+Finclude gnome gnome-scriptlet
+#source=($source deprecated.diff)
+sha1sums=('91120d2305711aff39d36ee52920f9af66648c3c')
+_F_cd_path=$_F_gnome_name-$pkgver
+Fconfopts+=" --with-gtkver=3 --disable-static \
+	--with-bluetooth --enable-more-warnings=yes --disable-migration"
+replaces=('gnome-ppp')
+
+subpkgs=('nm-connection-editor')
+subdescs=('A network connection configuration editor for NetworkManager')
+subdepends=('gtk+3 mobile-broadband-provider-info gnome-bluetooth networkmanager>=0.9.8.0')
+subgroups=('gnome gnome-minimal')
+subarchs=('i686 x86_64')
+
+build()
+{
+	Fbuild
+
+	Fsplit nm-connection-editor usr/bin/nm-connection-editor
+	Fsplit nm-connection-editor usr/share/applications/nm-connection-editor.desktop
+	Fsplit nm-connection-editor usr/share/nm-applet/ce-*
+	Fsplit nm-connection-editor usr/share/nm-applet/eap-method-*
+	Fsplit nm-connection-editor usr/share/nm-applet/ws-*
+	Fsplit nm-connection-editor usr/share/nm-applet/nag-user-dialog.ui
+	Fsplit nm-connection-editor usr/share/nm-applet/nm-connection-editor.ui
+	Fsplit nm-connection-editor usr/share/icons/hicolor/*/apps/nm-device-*.*
+	Fsplit nm-connection-editor usr/share/icons/hicolor/*/apps/nm-no-connection.*
+	Fsplit nm-connection-editor usr/share/icons/hicolor/16x16/apps/nm-vpn-standalone-lock.png
+	Fsplit nm-connection-editor usr/share/glib-2.0
+	Fsplit nm-connection-editor usr/share/man/man1/nm-connection-editor*
+	Fsplit nm-connection-editor usr/lib
+	Fsplit nm-connection-editor usr/share/libnm-gtk
+	Fsplit nm-connection-editor usr/include
+	Fsplit nm-connection-editor usr/share/gir-1.0
+	Fsplit nm-connection-editor usr/share/locale
+
+	Fbuild_gnome_scriptlet
+}
+
+# optimization OK

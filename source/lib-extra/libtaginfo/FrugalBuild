@@ -1,0 +1,16 @@
+# Compiling Time: 0.11 SBU
+# Maintainer: Pingax <pingax@frugalware.org>
+
+pkgname=libtaginfo
+pkgver=0.1.6
+pkgrel=1
+pkgdesc="Library for reading media metadata"
+url="https://bitbucket.org/shuerhaaken/$pkgname"
+archs=('i686' 'x86_64')
+groups=('lib-extra')
+depends=('taglib')
+up2date="Flasttar $url/downloads"
+source=("$url/downloads/$pkgname-$pkgver.tar.gz")
+sha1sums=('2c5db5f263dd017517df481deacf9f96b3462dab')
+
+# optimization OK

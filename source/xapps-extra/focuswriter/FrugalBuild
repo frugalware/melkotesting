@@ -1,23 +1,26 @@
-# Compiling Time: 0.18 SBU
+# Compiling Time: 0.29 SBU
 # Maintainer: Slown <slown@frugalware.org>
 
 pkgname=focuswriter
-pkgver=1.4.1
+pkgver=1.4.4
 pkgrel=1
 pkgdesc="A simple fullscreen word processor"
 url="http://gottcode.org/focuswriter"
-depends=('libqtgui' 'libqtnetwork' 'enchant' 'libzip' 'libuuid' 'xz')
+depends=('libqtgui' 'libqtnetwork' 'enchant' 'libzip' 'expat')
 groups=('xapps-extra')
 archs=('i686' 'x86_64')
 up2date="Flastarchive $url -src.tar.bz2"
 source=($url/$pkgname-$pkgver-src.tar.bz2)
-sha1sums=('9159d09ce620b77b4fe8d2339f1f77a2b33bc5a5')
+_F_gnome_iconcache="y"
+Finclude gnome-scriptlet
+sha1sums=('08f65cedda582908b16d614febfd91d41574ef7c')
 
 build() {
 	Fcd
 	qmake PREFIX=/usr || Fdie
 	Fmake
 	Fmakeinstall INSTALL_ROOT="$Fdestdir"
+	Fbuild_gnome_scriptlet
 }
 
 # optimization OK

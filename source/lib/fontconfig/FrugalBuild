@@ -1,9 +1,12 @@
 # Compiling time: 0.32 SBU
-# Maintainer: crazy <crazy@frugalware.org>
+# Maintainer: Baste <baste@frugalware.org>
+# Contributor: crazy <crazy@frugalware.org>
 # Contributor: Miklos Vajna <vmiklos@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=fontconfig
-pkgver=2.10.91
+pkgver=2.10.93
 pkgrel=1
 pkgdesc="A library for configuring and customizing font access"
 url="http://fontconfig.org/"
@@ -27,6 +30,6 @@ build()
 	Fmakeinstall
 	Ffile 25-no-bitmap.conf etc/fonts/conf.d/
 }
-sha1sums=('ad6f0b59a60717c71941a65d49e06a74d5205d29' \
+sha1sums=('a24072e1e9430d7c02323fa82f5318af69e145e6' \
           '72ed9989eb96475b0c077dda2e47188583d63420')
 # optimization OK

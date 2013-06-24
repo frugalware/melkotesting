@@ -1,5 +1,7 @@
-# Compiling Time: 32.25 SBU
+# Compiling Time: 32.26 SBU
 # Maintainer: Melko <melko@frugalware.org>
+
+options+=('asneeded')
 
 pkgname=kdepim
 pkgrel=1

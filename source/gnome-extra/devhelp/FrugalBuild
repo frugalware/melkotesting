@@ -1,40 +1,28 @@
-# Compiling time: 1.00 SBU
+# Compiling time: 0.20 SBU
 # Maintainer: Baste <baste@frugalware.org>
 # Contributor: bouleetbil <bouleetbil@frogdev.info>
 # Contributor: AlexExtreme <alex@alex-smith.me.uk>
 
+options+=('asneeded')
+
 pkgname=devhelp
-pkgver=3.6.1
+pkgver=3.8.2
 pkgrel=1
 pkgdesc="Developer API documentation browser"
 url="http://www.gnome.org/"
-depends=('libwnck>=3.2.0' 'dbus-glib>=0.71-2' 'webkit-gtk3' 'gconf' 'icu4c>=4.8')
+#depends=('libwnck>=3.2.0' 'dbus-glib>=0.71-2' 'webkit-gtk3' 'gconf' 'icu4c>=4.8')
+depends=('webkit-gtk3')
 makedepends=('intltool')
 groups=('gnome-extra')
 archs=('i686' 'x86_64')
-_F_gnome_schemas=('/etc/gconf/schemas/devhelp.schemas')
+_F_gnome_glib="y"
 _F_gnome_iconcache="y"
 _F_gnome_desktop="y"
+_F_gnome_devel="n"
 _F_gnome_ext=".tar.xz"
-options=('scriptlet')
 Finclude gnome gnome-scriptlet
-sha1sums=('6fad299a63c8672a32cb9a4a8de2f0a9a656024e')
+sha1sums=('e25a93f80a818bcc53a3befece9a17a5498df98b')
 replaces=('devhelp-gedit')
 provides=('devhelp-gedit')
-
-#remove
-#subpkgs=('devhelp-gedit')
-#subdescs=('Gedit plugin for Devhelp')
-#subrodepends=("$pkgname=$pkgver gedit")
-#subgroups=('gnome-extra')
-#subarchs=('i686 x86_64')
-
-build() {
-	Fcd
-	Fmake
-	Fmakeinstall
-	#Fsplit devhelp-gedit usr/lib/gedit-2
-	Fbuild_gnome_scriptlet
-}
 
 # optimization OK

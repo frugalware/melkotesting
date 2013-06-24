@@ -1,8 +1,10 @@
 # Compiling Time: 0.05 SBU
 # Maintainer: Melko <melko@frugalware.org>
 
+options+=('asneeded')
+
 pkgname=spyder
-pkgver=2.1.11
+pkgver=2.2.0
 pkgrel=1
 pkgdesc="Interactive development environment for the Python."
 depends=('pyqt4')
@@ -11,8 +13,9 @@ groups=('xapps-extra')
 archs=('i686' 'x86_64')
 _F_googlecode_ext=".zip"
 _F_googlecode_dirname="spyderlib"
+_F_archive_grepv="beta"
 Finclude googlecode
-sha1sums=('18ced35c0a6628e42ffd4e1354e348983fdf3b63')
+sha1sums=('946b14d71931218baf10105f820eaeb4d317ab80')
 
 build() {
 	Fbuild

@@ -2,7 +2,7 @@
 # Maintainer: Melko <melko@frugalware.org>
 
 pkgname=calligra-l10n
-pkgver=2.6.1
+pkgver=2.6.4
 pkgrel=1
 pkgdesc="Dummy package."
 url="http://www.calligra-suite.org"
@@ -14,34 +14,35 @@ archs=('i686' 'x86_64')
 up2date="lynx -dump ftp://ftp.kde.org/pub/kde/stable/calligra-latest | grep 'tar' | sed -n 's/.*calligra-\(.*\).tar.bz2.*/\1/;1p'"
 source=()
 subpkgs=()
-sha1sums=('e6e128cbf85c6d96650092d241ff1ec0db6250d4' \
-          'eb01189526d8256bd7dbff030765c1f06a802d0b' \
-          'c0ead78149e6444d5454ae5886d463cff6e2482f' \
-          '2af7922f1994475a3c7353acd29940b75d415f44' \
-          'ed1279cb9611baaac627615e820ce5c978047564' \
-          '438b3787aa495654a2317791d5cff54f00ece10b' \
-          '81349c0a8a07279386e70719ffae6a452f70309e' \
-          '8948a6b8c58a167abfa03fe010f5d1cb72d32623' \
-          '4ab45001ba15d3521b1200060b05ef1ab1ff0b0a' \
-          '64047afdaa5926c1f9486969dbf3e34b9e5afd60' \
-          '400b7e3525e1bcbfa1af75e735871bfb60ace3e8' \
-          '5936f9c23bc7ffe869c12d37b6a986ff0744e0dc' \
-          '688a2ab8a36d062a3a01a2c12c9f8dca8254f20f' \
-          'b0bf106adae72e9aaad10d46a3a0c1b7561ebd02' \
-          'd43496e6754b269c92dc7a0b178bd574ca1bb6e0' \
-          'ad941c2b0c31702b97af81b81715c38db6a1f912' \
-          'a2ecec92b7d2afecad69f1efae2d2b86ef1c3fa4' \
-          'f37324b11afa25cffff96f702443bfeae855f4cc' \
-          '0c9f3fee5e77498a632fe0c783deb386f4a3934b' \
-          '2ce26aa5077b39048b1b2e189923fb607438ef11' \
-          '3319ab40376a1f969028fe4c789daf7aa38e2f22' \
-          '10e8517476cd3d8ff2d1e71682832cccb7ac6a18' \
-          '0b80f30514245226f70b9d2b429b1104ade724fb' \
-          '1762a7eb05276f34261f06dde09fe37a323c03ab' \
-          '97c909e82ee7f21ee240e7c6e3245ce932e8fede' \
-          'a34391d758b9320a01e66050df92417a98858d8a' \
-          '36f7d1077221e086c0f75cadc3d596aa836e6781' \
-          'a780f8d4035c8f21f7ad86c60b60502aa93e0287')
+sha1sums=('14367964853dcd139f9da4a241df4b8cf71a5ebd' \
+          '7f634cdb615e31fcd203a75628a6a5a6013d1537' \
+          '13883190ee3b6de8d4a34d8fd2f40fef5cc6c3d1' \
+          '8fac81c7d32f552370b2088cd3ea70f03a751447' \
+          'a7008f195f6f1cfc346d028afbf0c3791d542d96' \
+          '1c9f1dda32281aa510d4a19b4c52fe4461d0774c' \
+          'df9296c29dc744fb1d57fb0ac7cec95860d1b996' \
+          '541f6fd6153d292d4174c6fd9d0c61861b68482b' \
+          '719cafdebab712a70ab64ef80ea2801066ee81a2' \
+          'ce41ac8e00d345b1fba7f19a8912b5d891a3568a' \
+          '3a383766af48e985d5cda6e6cdace1e05baa689d' \
+          '08dc25ee29be9618ec1c19763db4f9a38ad68ec7' \
+          '338b88fd3a59b9664adfa7938af974fc3ab0af9a' \
+          '2902772343416a72b420de56764b4810b6272551' \
+          '05abc3d480b5282531b24610c0c20f1805b83d85' \
+          'e2b80e9a276203aef8e567102408ce742f51ddc0' \
+          'ecd70e00af770ced35506961309d3e522dd1acc5' \
+          '435944c098b67887ea3e187f03c404a9232c12a7' \
+          '58423344fa28c1362e108ea63b792e065c3dbf2f' \
+          'b04e63888d9d682b37f25cdb14a9f33aa6c86f16' \
+          'd8699b0d847a98e0230f1f9162165bd74c2c0688' \
+          '2a6b66911c826539263a79d9eb0862234f85600e' \
+          'ffdd46632ecd82d70398cdc1f34c4aa11bb2d557' \
+          'a6543aa01590493b8b66d0cdfc2719d1858db371' \
+          '5fa91e38414198cbab104bd72c0eb0edf40e23e4' \
+          'ace9a384ecc8dbabf104e4b55bed73c166ccc9b2' \
+          '4ab4a94740f5d94cf16f4ec055d61d02e0fba71a' \
+          '3cf2d6727212307debbdd73da1984d21457dd3aa' \
+          '21fb55c8a8f3a8e723f2f0a395e3c114cbc03495')
 
 ## this part is almost the same of kde-l10n
 kde_l10n_language_from_tag() {
@@ -70,9 +71,6 @@ kde_l10n_lang_add() {
 	subpkgs+=("$pkgname-`Flowerstr "$1"`")
         subdescs+=("`kde_l10n_language_from_tag $1` localization for Calligra.")
         subdepends+=('')
-        subconflicts+=("kde-i18n-`Flowerstr "$1"`")
-        subreplaces+=("kde-i18n-`Flowerstr "$1"`")
-        subprovides+=("kde-i18n-`Flowerstr "$1"`")
         subgroups+=("locale-extra")
         subarchs+=("i686 x86_64")
 }
@@ -93,7 +91,7 @@ build()
 ## for i in $(lynx -dump ftp://ftp.kde.org/pub/kde/stable/calligra-2.6.0/calligra-l10n/ | sed -n "s/.*calligra-l10n-\(.*\)-.*.tar.bz2$/\1/p");do echo kde_l10n_lang_add \"$i\" >> FrugalBuild;done
 kde_l10n_lang_add "bs"
 kde_l10n_lang_add "ca"
-kde_l10n_lang_add "ca@valencia"
+kde_l10n_lang_add "cs"
 kde_l10n_lang_add "da"
 kde_l10n_lang_add "de"
 kde_l10n_lang_add "el"
@@ -116,6 +114,7 @@ kde_l10n_lang_add "ru"
 kde_l10n_lang_add "sk"
 kde_l10n_lang_add "sl"
 kde_l10n_lang_add "sv"
+kde_l10n_lang_add "tr"
 kde_l10n_lang_add "uk"
 kde_l10n_lang_add "zh_CN"
 kde_l10n_lang_add "zh_TW"

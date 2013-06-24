@@ -1,5 +1,7 @@
-# Compiling Time: 1.55 SBU
+# Compiling Time: 1.56 SBU
 # Maintainer: Melko <melko@frugalware.org>
+
+options+=('asneeded')
 
 pkgname=kate
 pkgrel=1

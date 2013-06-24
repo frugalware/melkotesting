@@ -1,5 +1,7 @@
-# Compiling Time: 1.25 SBU
+# Compiling Time: 1.26 SBU
 # Maintainer: Melko <melko@frugalware.org>
+
+options+=('asneeded')
 
 pkgname=perlqt
 pkgrel=1
